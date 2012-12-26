@@ -1,0 +1,10 @@
+{
+  "keyboard_shortcut": "", 
+  "set_selection": "false", 
+  "name": "inline if JVERSION", 
+  "type": "snippet", 
+  "value": [
+    "<?php if( JVERSION >= 3 ): ?>!@#_currentPos!@#_anchor"
+  ], 
+  "indent_relative": "false"
+}

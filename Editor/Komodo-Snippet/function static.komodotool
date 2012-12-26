@@ -1,0 +1,19 @@
+{
+  "keyboard_shortcut": "", 
+  "name": "function static", 
+  "value": [
+    "/*", 
+    " * function [[%tabstop1:name]]", 
+    " * @param [[%tabstop2:arg]]", 
+    " */", 
+    "", 
+    "public static function [[%tabstop1]]([[%tabstop2]])", 
+    "{", 
+    "\t[[%tabstop:]]", 
+    "}!@#_currentPos!@#_anchor"
+  ], 
+  "set_selection": "false", 
+  "version": "1.0.7", 
+  "type": "snippet", 
+  "indent_relative": "true"
+}

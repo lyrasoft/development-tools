@@ -1,0 +1,11 @@
+{
+  "keyboard_shortcut": "", 
+  "name": "show", 
+  "value": [
+    "AK::show($!@#_anchorresult!@#_currentPos);"
+  ], 
+  "set_selection": "true", 
+  "version": "1.0.7", 
+  "type": "snippet", 
+  "indent_relative": "false"
+}

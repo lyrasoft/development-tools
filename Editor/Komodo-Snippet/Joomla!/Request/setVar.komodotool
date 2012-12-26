@@ -1,0 +1,11 @@
+{
+  "keyboard_shortcut": "", 
+  "name": "setVar", 
+  "value": [
+    "JRequest::setVar('!@#_currentPos!@#_anchor', $value, 'method', true) ;"
+  ], 
+  "set_selection": "true", 
+  "version": "1.0.7", 
+  "type": "snippet", 
+  "indent_relative": "false"
+}
