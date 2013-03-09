@@ -5,27 +5,27 @@ DB=$(php ./.git/hooks/get-db-name.php)
 
 
 # This is for Ubuntu server
-# mysqldump -u $DBUSER -p$DBPASS --comment=0 --add-drop-table $DB > "$DB.sql"
-# mysqldump -u $DBUSER -p$DBPASS --comment=0 --add-drop-table --no-data $DB > "$DB-table.sql"
-# mysqldump -u $DBUSER -p$DBPASS --comment=0 --no-create-info $DB > "$DB-data.sql"
+# mysqldump -u $DBUSER -p$DBPASS --comment=0 --skip-extended-insert --add-drop-table $DB > "$DB.sql"
+# mysqldump -u $DBUSER -p$DBPASS --comment=0 --skip-extended-insert --add-drop-table --no-data $DB > "$DB-table.sql"
+# mysqldump -u $DBUSER -p$DBPASS --comment=0 --skip-extended-insert --no-create-info $DB > "$DB-data.sql"
 
 
 # This is for Mac OSX MAMP
-# /Applications/MAMP/Library/bin/mysqldumpc -u $DBUSER -p$DBPASS --comment=0 --add-drop-table $DB > "$DB.sql"
-# /Applications/MAMP/Library/bin/mysqldump -u $DBUSER -p$DBPASS --comment=0 --add-drop-table --no-data $DB > "$DB-table.sql"
-# /Applications/MAMP/Library/bin/mysqldump -u $DBUSER -p$DBPASS --comment=0 --no-create-info $DB > "$DB-data.sql"
+# /Applications/MAMP/Library/bin/mysqldumpc -u $DBUSER -p$DBPASS --comment=0 --skip-extended-insert --add-drop-table $DB > "$DB.sql"
+# /Applications/MAMP/Library/bin/mysqldump -u $DBUSER -p$DBPASS --comment=0 --skip-extended-insert --add-drop-table --no-data $DB > "$DB-table.sql"
+# /Applications/MAMP/Library/bin/mysqldump -u $DBUSER -p$DBPASS --comment=0 --skip-extended-insert --no-create-info $DB > "$DB-data.sql"
 
 
 # This is for Mac OSX XAMPP
-/Applications/XAMPP/xamppfiles/bin/mysqldump -u $DBUSER -p$DBPASS --comment=0 --add-drop-table $DB > "$DB.sql"
-/Applications/XAMPP/xamppfiles/bin/mysqldump -u $DBUSER -p$DBPASS --comment=0 --add-drop-table --no-data $DB > "$DB-table.sql"
-/Applications/XAMPP/xamppfiles/bin/mysqldump -u $DBUSER -p$DBPASS --comment=0 --no-create-info $DB > "$DB-data.sql"
+/Applications/XAMPP/xamppfiles/bin/mysqldump -u $DBUSER -p$DBPASS --comment=0 --skip-extended-insert --add-drop-table $DB > "$DB.sql"
+/Applications/XAMPP/xamppfiles/bin/mysqldump -u $DBUSER -p$DBPASS --comment=0 --skip-extended-insert --add-drop-table --no-data $DB > "$DB-table.sql"
+/Applications/XAMPP/xamppfiles/bin/mysqldump -u $DBUSER -p$DBPASS --comment=0 --skip-extended-insert --no-create-info $DB > "$DB-data.sql"
 
 
 #This is for Windows WAMP
-# C:/wamp/bin/mysql/mysql5.5.24/bin/mysqldump -u $DBUSER -p$DBPASS --comment=0 --add-drop-table $DB > "$DB.sql"
-# C:/wamp/bin/mysql/mysql5.5.24/bin/mysqldump -u $DBUSER -p$DBPASS --comment=0 --add-drop-table --no-data $DB > "$DB-table.sql"
-# C:/wamp/bin/mysql/mysql5.5.24/bin/mysqldump -u $DBUSER -p$DBPASS --comment=0 --no-create-info $DB > "$DB-data.sql"
+# C:/wamp/bin/mysql/mysql5.5.24/bin/mysqldump -u $DBUSER -p$DBPASS --comment=0 --skip-extended-insert --add-drop-table $DB > "$DB.sql"
+# C:/wamp/bin/mysql/mysql5.5.24/bin/mysqldump -u $DBUSER -p$DBPASS --comment=0 --skip-extended-insert --add-drop-table --no-data $DB > "$DB-table.sql"
+# C:/wamp/bin/mysql/mysql5.5.24/bin/mysqldump -u $DBUSER -p$DBPASS --comment=0 --skip-extended-insert --no-create-info $DB > "$DB-data.sql"
 
 
 git add "$DB.sql"
