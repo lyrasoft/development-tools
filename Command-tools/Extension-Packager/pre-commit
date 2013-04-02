@@ -1,6 +1,6 @@
 #!/bin/sh
 
-SITE="joomla301"
+SITE="site_name"
 COM="flower"
 MOD="flower"
 PLG="flower"
@@ -9,13 +9,13 @@ GUP="system"
 
 rm ../com_$COM.zip
 
-#site
+# admin
 rm -rf admin
 mkdir admin
 cp -rf /var/www/$SITE/administrator/components/com_$COM/ admin
 echo "Admin copied" ;
 
-# admin
+# site
 rm -rf site
 mkdir site
 cp -rf /var/www/$SITE/components/com_$COM/ site
@@ -53,10 +53,11 @@ echo "Site copied" ;
 # echo "Plugin copied" ;
 
 
+git add .
+echo "Execute git add" ;
+
 zip -rq ../com_$COM.zip *
 echo "Ziped files" ;
 
-
-git add .
 
 exit 0
