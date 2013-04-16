@@ -25,6 +25,8 @@ echo "Site copied" ;
 # rm -rf admin/windwalker
 # mkdir admin/windwalker
 # cp -rf /var/www/$SITE/libraries/windwalker/ admin/windwalker
+# rm -rf admin/windwalker/.git
+# rm -f admin/windwalker/.gitignore
 # echo "Lib copied" ;
 
 # xml and install script
