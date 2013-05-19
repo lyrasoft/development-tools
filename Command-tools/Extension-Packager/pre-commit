@@ -58,6 +58,10 @@ echo "Site copied" ;
 git add .
 echo "Execute git add" ;
 
+# For Win PowerShell
+# exec c:/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -NoProfile -Command "Get-ChildItem . -r -Exclude .git | Write-Zip -OutputPath ../com_$COM.zip -IncludeEmptyDirectories"
+
+# For Mac
 zip -rq ../com_$COM.zip *
 echo "Ziped files" ;
 
