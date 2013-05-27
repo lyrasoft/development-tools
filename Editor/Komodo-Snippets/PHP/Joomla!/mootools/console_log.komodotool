@@ -1,0 +1,10 @@
+{
+  "keyboard_shortcut": "", 
+  "set_selection": "true", 
+  "name": "console.log", 
+  "type": "snippet", 
+  "value": [
+    "console.log(!@#_currentPos!@#_anchor);"
+  ], 
+  "indent_relative": "true"
+}

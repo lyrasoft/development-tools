@@ -1,0 +1,10 @@
+{
+  "keyboard_shortcut": "", 
+  "set_selection": "true", 
+  "name": "JComponentHelper::getParams", 
+  "type": "snippet", 
+  "value": [
+    "JComponentHelper::getParams('!@#_currentPos!@#_anchor') ;"
+  ], 
+  "indent_relative": "true"
+}
