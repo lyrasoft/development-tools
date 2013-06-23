@@ -38,7 +38,7 @@ require_once JPATH_LIBRARIES . '/import.php';
 require_once JPATH_LIBRARIES . '/cms.php';
 
 // Force library to be in JError legacy mode
-JError::$legacy = true;
+//JError::$legacy = true;
 
 // Load the configuration
 require_once JPATH_CONFIGURATION . '/configuration.php';
@@ -79,13 +79,26 @@ class Mysqlimport extends JApplicationCli
 			$this->close();
 		}
 		
+		$sql = trim($sql);
+		
 		if( $sql ){
-			$db->setQuery( $sql );
-			if(!$db->queryBatch()){
-				$msg = $db->getErrorMsg();
-				$this->out($msg);
-				$this->close();
-			};
+			
+			$queries = $this->splitSql($sql);
+			
+			foreach ($queries as $query)
+			{
+				$query = trim($query);
+				if ($query != '')
+				{
+					$db->setQuery($query);
+					
+					if(!$db->query()){
+						$msg = $db->getErrorMsg();
+						$this->out($msg);
+						$this->close();
+					};
+				}
+			}
 		}
 		
 		$this->out('Import success.');
