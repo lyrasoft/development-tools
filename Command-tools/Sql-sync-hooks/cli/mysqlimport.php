@@ -73,7 +73,7 @@ class Mysqlimport extends JApplicationCli
 		$sql = '';
 		
 		if( JFile::exists($sql_path) ){
-			$sql = JFile::read($sql_path) ;
+			$sql = file_get_contents($sql_path) ;
 		}else{
 			$this->out( 'File not found.' );
 			$this->close();
