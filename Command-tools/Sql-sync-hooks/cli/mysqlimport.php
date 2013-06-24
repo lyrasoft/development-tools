@@ -83,7 +83,7 @@ class Mysqlimport extends JApplicationCli
 		
 		if( $sql ){
 			
-			$queries = $this->splitSql($sql);
+			$queries = $db->splitSql($sql);
 			
 			foreach ($queries as $query)
 			{
