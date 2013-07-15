@@ -22,9 +22,9 @@ ehthumbs.db
 Thumbs.db
 
 # For whole Joomla! site #
-/logs
+/logs/*
 !/logs/index.html
-/cache
+/cache/*
 !/cache/index.html
-/tmp
+/tmp/*
 !/tmp/index.html
