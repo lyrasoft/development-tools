@@ -1,10 +1,10 @@
 {
   "keyboard_shortcut": "", 
   "set_selection": "true", 
-  "name": "JComponentHelper::getParams", 
+  "name": "Input getVar", 
   "type": "snippet", 
   "value": [
-    "JComponentHelper::getParams('!@#_currentPos!@#_anchor') ;"
+    "$input->getVar('!@#_currentPos!@#_anchor');"
   ], 
   "indent_relative": "true"
 }

@@ -1,11 +1,11 @@
 {
   "keyboard_shortcut": "", 
-  "name": "getVar", 
+  "name": "Attr readonly", 
   "value": [
-    "JRequest::getVar('!@#_anchorparam!@#_currentPos') ;"
+    "readonly=\"true\"!@#_currentPos!@#_anchor"
   ], 
   "set_selection": "true", 
   "version": "1.0.7", 
   "type": "snippet", 
-  "indent_relative": "false"
+  "indent_relative": "true"
 }

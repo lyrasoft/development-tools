@@ -1,6 +1,6 @@
 {
   "keyboard_shortcut": "", 
-  "name": "setVar", 
+  "name": "Request setVar", 
   "value": [
     "JRequest::setVar('!@#_currentPos!@#_anchor', $value, 'method', true) ;"
   ], 

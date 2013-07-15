@@ -1,0 +1,18 @@
+{
+  "keyboard_shortcut": "", 
+  "name": "Field Single", 
+  "value": [
+    "<field name=\"[[%tabstop:title]]\"", 
+    "\ttype=\"[[%tabstop:text]]\"", 
+    "\tlabel=\"[[%tabstop]]\"", 
+    "\tdescription=\"[[%tabstop]]\"", 
+    "\tdefault=\"[[%tabstop]]\"", 
+    "\tclass=\"[[%tabstop]]\"", 
+    "\tlabelclass=\"control-label[[%tabstop]]\"!@#_currentPos!@#_anchor", 
+    "/>[[%tabstop]]"
+  ], 
+  "set_selection": "true", 
+  "version": "1.0.7", 
+  "type": "snippet", 
+  "indent_relative": "true"
+}

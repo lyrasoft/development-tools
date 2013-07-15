@@ -1,13 +1,11 @@
 {
   "keyboard_shortcut": "", 
-  "name": "function static", 
+  "name": "function", 
   "value": [
     "/**", 
     " * function [[%tabstop1:name]]", 
-    " * @param [[%tabstop2:arg]]", 
     " */", 
-    "public static function [[%tabstop1]]([[%tabstop2]])", 
-    "{", 
+    "function [[%tabstop1]]($[[%tabstop2]]) {", 
     "\t[[%tabstop:]]", 
     "}!@#_currentPos!@#_anchor"
   ], 

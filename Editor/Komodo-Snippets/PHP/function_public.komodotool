@@ -4,7 +4,6 @@
   "value": [
     "/**", 
     " * function [[%tabstop1:name]]", 
-    " * @param [[%tabstop2:arg]]", 
     " */", 
     "public function [[%tabstop1]]([[%tabstop2]])", 
     "{", 

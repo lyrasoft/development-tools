@@ -1,10 +1,10 @@
 {
   "keyboard_shortcut": "", 
-  "name": "get", 
+  "name": "Request getVar", 
   "value": [
-    "JRequest::get() ;!@#_currentPos!@#_anchor"
+    "JRequest::getVar('!@#_anchorparam!@#_currentPos') ;"
   ], 
-  "set_selection": "false", 
+  "set_selection": "true", 
   "version": "1.0.7", 
   "type": "snippet", 
   "indent_relative": "false"

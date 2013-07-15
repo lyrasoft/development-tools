@@ -1,0 +1,15 @@
+{
+  "keyboard_shortcut": "", 
+  "name": "Spacer", 
+  "value": [
+    "<field", 
+    "\ttype=\"spacer\"", 
+    "\tlabel=\"[[%tabstop]]\"!@#_currentPos!@#_anchor", 
+    "\thr=\"[[%tabstop:false]]\"", 
+    "/>[[%tabstop]]"
+  ], 
+  "set_selection": "true", 
+  "version": "1.0.7", 
+  "type": "snippet", 
+  "indent_relative": "true"
+}

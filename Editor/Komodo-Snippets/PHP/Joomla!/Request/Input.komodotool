@@ -1,0 +1,10 @@
+{
+  "keyboard_shortcut": "", 
+  "name": "Input", 
+  "value": [
+    "$input = JFactory::getApplication()->input ;!@#_currentPos!@#_anchor"
+  ], 
+  "set_selection": "true", 
+  "type": "snippet", 
+  "indent_relative": "true"
+}
