@@ -21,7 +21,13 @@
 ehthumbs.db
 Thumbs.db
 
+
+# Aptana Project #
+.settings
+.project
+
 # For whole Joomla! site #
+######################
 /logs/*
 !/logs/index.html
 /cache/*
