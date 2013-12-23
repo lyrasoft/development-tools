@@ -482,7 +482,7 @@ class Joomla_Sniffs_Commenting_FileCommentSniff implements PHP_CodeSniffer_Sniff
         foreach ($indentation as $indentInfo) {
             if ($indentInfo['space'] !== 0
             // Joomla change: allow for 2 space gap.
-                && $indentInfo['space'] !== ($longestTag + 1)
+                && $indentInfo['space'] < ($longestTag + 1)
             ) {
                 $expected = (($longestTag - strlen($indentInfo['tag'])) + 1);
                 $space    = ($indentInfo['space'] - strlen($indentInfo['tag']));
