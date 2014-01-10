@@ -2,11 +2,11 @@
 class JConfig
 {
 	// Database settings
-	public $dbtype = 'mysqli';
-	public $host = '';
-	public $user = '';
+	public $dbtype   = 'mysqli';
+	public $host     = '';
+	public $user     = '';
 	public $password = '';
-	public $db = '';
+	public $db       = '';
 	public $dbprefix = 'foo_';
 
 	// Paths
@@ -14,15 +14,15 @@ class JConfig
 	public $tmp_path = '../tmp';
 
 	// Cache settings
-	public $caching = '0';
+	public $caching       = '0';
 	public $cache_handler = 'file';
-	public $cachetime = '15';
+	public $cachetime     = '15';
 
 	// Error reporting settings
 	public $error_reporting = 'none';
 
 	// Debug settings
-	public $debug = '0';
+	public $debug      = '0';
 	public $debug_lang = '0';
 
 	// Site Information
