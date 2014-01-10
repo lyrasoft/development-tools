@@ -1,11 +1,12 @@
 <?php
-class JConfig {
+class JConfig
+{
 	// Database settings
-	public $dbtype   = 'mysqli';
-	public $host     = '';
-	public $user     = '';
+	public $dbtype = 'mysqli';
+	public $host = '';
+	public $user = '';
 	public $password = '';
-	public $db       = '';
+	public $db = '';
 	public $dbprefix = 'foo_';
 
 	// Paths
@@ -13,24 +14,24 @@ class JConfig {
 	public $tmp_path = '../tmp';
 
 	// Cache settings
-	public $caching       = '0';
+	public $caching = '0';
 	public $cache_handler = 'file';
-	public $cachetime     = '15';
+	public $cachetime = '15';
 
 	// Error reporting settings
 	public $error_reporting = 'none';
 
 	// Debug settings
-	public $debug      = '0';
+	public $debug = '0';
 	public $debug_lang = '0';
-    
-    // Site Information
-    public $sitename = '{{Site Name}}';
-    public $fromname = '{{Site Name}}';
-    public $MetaDesc = 'A site by ASIKART Studios / SMS';
+
+	// Site Information
+	public $sitename = '{{Site Name}}';
+	public $fromname = '{{Site Name}}';
+	public $MetaDesc = 'A site by ASIKART Studios / SMS';
 	public $MetaKeys = 'asika, asikart, sms, seo, joomla';
 
-    // Other config
+	// Other config
 	public $offline = '0';
 	public $offline_message = 'This site is down for maintenance.<br /> Please check back again soon.';
 	public $display_offline_message = '1';
@@ -81,10 +82,10 @@ class JConfig {
 	public $asset_id = '1';
 	public $language = 'zh-TW';
 	public $useStrongEncryption = '1';
-    
-    public function __construct()
-    {
-        $this->log_path = JPATH_ROOT . '/log';
-        $this->tmp_path = JPATH_ROOT . '/tmp';
-    }
+
+	public function __construct()
+	{
+		$this->log_path = JPATH_ROOT . '/log';
+		$this->tmp_path = JPATH_ROOT . '/tmp';
+	}
 }
