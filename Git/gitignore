@@ -30,7 +30,10 @@ Thumbs.db
 ######################
 /logs/*
 !/logs/index.html
+/log/*
+!/log/index.html
 /cache/*
 !/cache/index.html
 /tmp/*
 !/tmp/index.html
+/configuration.php
