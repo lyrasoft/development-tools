@@ -12,10 +12,10 @@
 $ git clone {Github URL}
 ```
 
-### Step 2: Checkout to staging branch
+### Step 2: Checkout to {branch} branch
 
 ```bash
-$ git checkout staging
+$ git checkout {branch}
 ```
 
 ### Step 3: 設定 `configuration.php`
