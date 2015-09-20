@@ -8,7 +8,7 @@
  * @package   PHP_CodeSniffer
  * @author    Greg Sherwood <gsherwood@squiz.net>
  * @author    Marc McIntyre <mmcintyre@squiz.net>
- * @copyright 2006-2012 Squiz Pty Ltd (ABN 77 084 670 600)
+ * @copyright 2006-2014 Squiz Pty Ltd (ABN 77 084 670 600)
  * @license   https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
  * @link      http://pear.php.net/package/PHP_CodeSniffer
  */
@@ -24,7 +24,7 @@
  * @package   PHP_CodeSniffer
  * @author    Greg Sherwood <gsherwood@squiz.net>
  * @author    Marc McIntyre <mmcintyre@squiz.net>
- * @copyright 2006-2012 Squiz Pty Ltd (ABN 77 084 670 600)
+ * @copyright 2006-2014 Squiz Pty Ltd (ABN 77 084 670 600)
  * @license   https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
  * @version   Release: @package_version@
  * @link      http://pear.php.net/package/PHP_CodeSniffer
@@ -90,7 +90,12 @@ class Generic_Sniffs_Files_LineLengthSniff implements PHP_CodeSniffer_Sniff
                 $currentLineContent .= $tokens[$tokenCount]['content'];
             } else {
                 $currentLineContent = substr($currentLineContent, 0, $trim);
-                $this->checkLineLength($phpcsFile, ($tokenCount - 1), $currentLineContent);
+                $continue = $this->checkLineLength($phpcsFile, ($tokenCount - 1), $currentLineContent);
+                if ($continue === false) {
+                    // Something went wrong and we should stop processing the file.
+                    return;
+                }
+
                 $currentLineContent = $tokens[$tokenCount]['content'];
                 $currentLine++;
             }
@@ -109,7 +114,7 @@ class Generic_Sniffs_Files_LineLengthSniff implements PHP_CodeSniffer_Sniff
      * @param int                  $stackPtr    The token at the end of the line.
      * @param string               $lineContent The content of the line.
      *
-     * @return void
+     * @return null|false
      */
     protected function checkLineLength(PHP_CodeSniffer_File $phpcsFile, $stackPtr, $lineContent)
     {
@@ -123,11 +128,17 @@ class Generic_Sniffs_Files_LineLengthSniff implements PHP_CodeSniffer_Sniff
         }
 
         if (PHP_CODESNIFFER_ENCODING !== 'iso-8859-1') {
-            // Not using the default encoding, so take a bit more care.
-            $lineLength = iconv_strlen($lineContent, PHP_CODESNIFFER_ENCODING);
-            if ($lineLength === false) {
-                // String contained invalid characters, so revert to default.
-                $lineLength = strlen($lineContent);
+            if (function_exists('iconv_strlen') === true) {
+                // Not using the default encoding, so take a bit more care.
+                $lineLength = iconv_strlen($lineContent, PHP_CODESNIFFER_ENCODING);
+                if ($lineLength === false) {
+                    // String contained invalid characters, so revert to default.
+                    $lineLength = strlen($lineContent);
+                }
+            } else {
+                $error = 'Line length could not be checked in this file as the iconv module has been disabled in PHP';
+                $phpcsFile->addWarning($error, $stackPtr, 'MissingIconv');
+                return false;
             }
         } else {
             $lineLength = strlen($lineContent);

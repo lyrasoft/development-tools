@@ -8,7 +8,7 @@
  * @package   PHP_CodeSniffer
  * @author    Greg Sherwood <gsherwood@squiz.net>
  * @author    Marc McIntyre <mmcintyre@squiz.net>
- * @copyright 2006-2012 Squiz Pty Ltd (ABN 77 084 670 600)
+ * @copyright 2006-2014 Squiz Pty Ltd (ABN 77 084 670 600)
  * @license   https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
  * @link      http://pear.php.net/package/PHP_CodeSniffer
  */
@@ -35,7 +35,7 @@ if (class_exists('PHP_CodeSniffer_CommentParser_ClassCommentParser', true) === f
  * @package   PHP_CodeSniffer
  * @author    Greg Sherwood <gsherwood@squiz.net>
  * @author    Marc McIntyre <mmcintyre@squiz.net>
- * @copyright 2006-2012 Squiz Pty Ltd (ABN 77 084 670 600)
+ * @copyright 2006-2014 Squiz Pty Ltd (ABN 77 084 670 600)
  * @license   https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
  * @version   Release: @package_version@
  * @link      http://pear.php.net/package/PHP_CodeSniffer
@@ -113,20 +113,10 @@ class Squiz_Sniffs_Commenting_ClassCommentSniff implements PHP_CodeSniffer_Sniff
 
                 // Exactly one blank line before the class comment.
                 $prevTokenEnd = $phpcsFile->findPrevious(T_WHITESPACE, ($commentStart - 1), null, true);
-                if ($prevTokenEnd !== false) {
-                    $blankLineBefore = 0;
-                    for ($i = ($prevTokenEnd + 1); $i < $commentStart; $i++) {
-                        if ($tokens[$i]['code'] === T_WHITESPACE && $tokens[$i]['content'] === $phpcsFile->eolChar) {
-                            $blankLineBefore++;
-                        }
-                    }
-
-                    if ($blankLineBefore !== 2) {
-                        $error = 'There must be exactly one blank line before the class comment';
-                        $phpcsFile->addError($error, ($commentStart - 1), 'SpacingBefore');
-                    }
+                if ($tokens[$prevTokenEnd]['line'] !== ($tokens[$commentStart]['line'] - 2)) {
+                    $error = 'There must be exactly one blank line before the class comment';
+                    $phpcsFile->addError($error, ($commentStart - 1), 'SpacingBefore');
                 }
-
             }//end if
         }//end if
 

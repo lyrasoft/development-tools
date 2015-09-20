@@ -7,7 +7,7 @@
  * @category  PHP
  * @package   PHP_CodeSniffer
  * @author    Florian Grandel <jerico.dev@gmail.com>
- * @copyright 2009 Florian Grandel
+ * @copyright 2009-2014 Florian Grandel
  * @license   https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
  * @link      http://pear.php.net/package/PHP_CodeSniffer
  */
@@ -20,7 +20,7 @@
  * @category  PHP
  * @package   PHP_CodeSniffer
  * @author    Florian Grandel <jerico.dev@gmail.com>
- * @copyright 2009 Florian Grandel
+ * @copyright 2009-2014 Florian Grandel
  * @license   https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
  * @version   Release: @package_version@
  * @link      http://pear.php.net/package/PHP_CodeSniffer
@@ -93,10 +93,18 @@ class Generic_Sniffs_Functions_CallTimePassByReferenceSniff implements PHP_CodeS
             return;
         }
 
+        if (isset($tokens[$openBracket]['parenthesis_closer']) === false) {
+            return;
+        }
+
         $closeBracket = $tokens[$openBracket]['parenthesis_closer'];
 
         $nextSeparator = $openBracket;
         while (($nextSeparator = $phpcsFile->findNext(T_VARIABLE, ($nextSeparator + 1), $closeBracket)) !== false) {
+            if (isset($tokens[$nextSeparator]['nested_parenthesis']) === false) {
+                continue;
+            }
+
             // Make sure the variable belongs directly to this function call
             // and is not inside a nested function call or array.
             $brackets    = $tokens[$nextSeparator]['nested_parenthesis'];

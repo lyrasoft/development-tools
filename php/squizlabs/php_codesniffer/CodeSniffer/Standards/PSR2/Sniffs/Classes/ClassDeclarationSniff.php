@@ -7,7 +7,7 @@
  * @category  PHP
  * @package   PHP_CodeSniffer
  * @author    Greg Sherwood <gsherwood@squiz.net>
- * @copyright 2006-2012 Squiz Pty Ltd (ABN 77 084 670 600)
+ * @copyright 2006-2014 Squiz Pty Ltd (ABN 77 084 670 600)
  * @license   https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
  * @link      http://pear.php.net/package/PHP_CodeSniffer
  */
@@ -25,7 +25,7 @@ if (class_exists('PEAR_Sniffs_Classes_ClassDeclarationSniff', true) === false) {
  * @category  PHP
  * @package   PHP_CodeSniffer
  * @author    Greg Sherwood <gsherwood@squiz.net>
- * @copyright 2006-2012 Squiz Pty Ltd (ABN 77 084 670 600)
+ * @copyright 2006-2014 Squiz Pty Ltd (ABN 77 084 670 600)
  * @license   https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
  * @version   Release: @package_version@
  * @link      http://pear.php.net/package/PHP_CodeSniffer
@@ -104,9 +104,8 @@ class PSR2_Sniffs_Classes_ClassDeclarationSniff extends PEAR_Sniffs_Classes_Clas
             break;
         }
 
-        $keyword      = $stackPtr;
-        $openingBrace = $tokens[$stackPtr]['scope_opener'];
-        $className    = $phpcsFile->findNext(T_STRING, $stackPtr);
+        $keyword   = $stackPtr;
+        $className = $phpcsFile->findNext(T_STRING, $stackPtr);
 
         $classOrInterface = strtolower($tokens[$keyword]['content']);
 
@@ -134,6 +133,13 @@ class PSR2_Sniffs_Classes_ClassDeclarationSniff extends PEAR_Sniffs_Classes_Clas
                      );
             $phpcsFile->addError($error, $stackPtr, 'SpaceAfterName', $data);
         }
+
+        // Just in case.
+        if (isset($tokens[$stackPtr]['scope_opener']) === false) {
+            return;
+        }
+
+        $openingBrace = $tokens[$stackPtr]['scope_opener'];
 
         // Check positions of the extends and implements keywords.
         foreach (array('extends', 'implements') as $keywordType) {
@@ -300,6 +306,11 @@ class PSR2_Sniffs_Classes_ClassDeclarationSniff extends PEAR_Sniffs_Classes_Clas
     public function processClose(PHP_CodeSniffer_File $phpcsFile, $stackPtr)
     {
         $tokens = $phpcsFile->getTokens();
+
+        // Just in case.
+        if (isset($tokens[$stackPtr]['scope_closer']) === false) {
+            return;
+        }
 
         // Check that the closing brace comes right after the code body.
         $closeBrace  = $tokens[$stackPtr]['scope_closer'];

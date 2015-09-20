@@ -8,7 +8,7 @@
  * @package   PHP_CodeSniffer
  * @author    Greg Sherwood <gsherwood@squiz.net>
  * @author    Marc McIntyre <mmcintyre@squiz.net>
- * @copyright 2006-2012 Squiz Pty Ltd (ABN 77 084 670 600)
+ * @copyright 2006-2014 Squiz Pty Ltd (ABN 77 084 670 600)
  * @license   https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
  * @link      http://pear.php.net/package/PHP_CodeSniffer
  */
@@ -19,7 +19,7 @@
  * @category  PHP
  * @package   PHP_CodeSniffer
  * @author    Greg Sherwood <gsherwood@squiz.net>
- * @copyright 2006-2012 Squiz Pty Ltd (ABN 77 084 670 600)
+ * @copyright 2006-2014 Squiz Pty Ltd (ABN 77 084 670 600)
  * @license   https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
  * @version   Release: @package_version@
  * @link      http://pear.php.net/package/PHP_CodeSniffer
@@ -189,7 +189,7 @@ class PHP_CodeSniffer_Tokenizers_JS
                               '*'         => 'T_MULTIPLY',
                               '%'         => 'T_MODULUS',
                               '/'         => 'T_DIVIDE',
-                              '^'         => 'T_POWER',
+                              '^'         => 'T_LOGICAL_XOR',
                               ','         => 'T_COMMA',
                               ';'         => 'T_SEMICOLON',
                               ':'         => 'T_COLON',
@@ -966,7 +966,7 @@ class PHP_CodeSniffer_Tokenizers_JS
      *
      * This additional processing looks for properties, labels and objects.
      *
-     * @param array  &$tokens The array of tokens to process.
+     * @param array  $tokens  The array of tokens to process.
      * @param string $eolChar The EOL character to use for splitting strings.
      *
      * @return void

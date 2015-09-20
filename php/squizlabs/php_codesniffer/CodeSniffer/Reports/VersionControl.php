@@ -7,8 +7,8 @@
  * @category  PHP
  * @package   PHP_CodeSniffer
  * @author    Ben Selby <benmatselby@gmail.com>
- * @copyright 2009 SQLI <www.sqli.com>
- * @copyright 2006-2012 Squiz Pty Ltd (ABN 77 084 670 600)
+ * @copyright 2009-2014 SQLI <www.sqli.com>
+ * @copyright 2006-2014 Squiz Pty Ltd (ABN 77 084 670 600)
  * @license   https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
  * @link      http://pear.php.net/package/PHP_CodeSniffer
  */
@@ -21,8 +21,8 @@
  * @category  PHP
  * @package   PHP_CodeSniffer
  * @author    Ben Selby <benmatselby@gmail.com>
- * @copyright 2009 SQLI <www.sqli.com>
- * @copyright 2006-2012 Squiz Pty Ltd (ABN 77 084 670 600)
+ * @copyright 2009-2014 SQLI <www.sqli.com>
+ * @copyright 2006-2014 Squiz Pty Ltd (ABN 77 084 670 600)
  * @license   https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
  * @version   Release: 1.2.2
  * @link      http://pear.php.net/package/PHP_CodeSniffer
@@ -223,6 +223,9 @@ abstract class PHP_CodeSniffer_Reports_VersionControl implements PHP_CodeSniffer
         echo str_repeat('-', $width).PHP_EOL;
         echo 'A TOTAL OF '.$errorsShown.' SNIFF VIOLATION(S) ';
         echo 'WERE COMMITTED BY '.count($this->_authorCache).' AUTHOR(S)'.PHP_EOL;
+
+        echo str_repeat('-', $width).PHP_EOL;
+        echo 'UPGRADE TO PHP_CODESNIFFER 2.0 TO FIX ERRORS AUTOMATICALLY'.PHP_EOL;
         echo str_repeat('-', $width).PHP_EOL.PHP_EOL;
 
         if ($toScreen === true

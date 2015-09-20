@@ -1,7 +1,1 @@
-#!/usr/bin/env sh
-SRC_DIR="`pwd`"
-cd "`dirname "$0"`"
-cd "../php/squizlabs/php_codesniffer/scripts"
-BIN_TARGET="`pwd`/phpcs"
-cd "$SRC_DIR"
-"$BIN_TARGET" "$@"
+../php/squizlabs/php_codesniffer/scripts/phpcs

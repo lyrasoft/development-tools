@@ -8,8 +8,8 @@
  * @package   PHP_CodeSniffer
  * @author    Gabriele Santini <gsantini@sqli.com>
  * @author    Greg Sherwood <gsherwood@squiz.net>
- * @copyright 2009 SQLI <www.sqli.com>
- * @copyright 2006-2012 Squiz Pty Ltd (ABN 77 084 670 600)
+ * @copyright 2009-2014 SQLI <www.sqli.com>
+ * @copyright 2006-2014 Squiz Pty Ltd (ABN 77 084 670 600)
  * @license   https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
  * @link      http://pear.php.net/package/PHP_CodeSniffer
  */
@@ -23,8 +23,8 @@
  * @package   PHP_CodeSniffer
  * @author    Gabriele Santini <gsantini@sqli.com>
  * @author    Greg Sherwood <gsherwood@squiz.net>
- * @copyright 2009 SQLI <www.sqli.com>
- * @copyright 2006-2012 Squiz Pty Ltd (ABN 77 084 670 600)
+ * @copyright 2009-2014 SQLI <www.sqli.com>
+ * @copyright 2006-2014 Squiz Pty Ltd (ABN 77 084 670 600)
  * @license   https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
  * @version   Release: @package_version@
  * @link      http://pear.php.net/package/PHP_CodeSniffer
@@ -118,6 +118,9 @@ class PHP_CodeSniffer_Reports_Summary implements PHP_CodeSniffer_Report
         echo 'AND '.$totalWarnings.' WARNING(S) ';
 
         echo 'WERE FOUND IN '.$totalFiles.' FILE(S)'.PHP_EOL;
+
+        echo str_repeat('-', $width).PHP_EOL;
+        echo 'UPGRADE TO PHP_CODESNIFFER 2.0 TO FIX ERRORS AUTOMATICALLY'.PHP_EOL;
         echo str_repeat('-', $width).PHP_EOL.PHP_EOL;
 
         if ($toScreen === true

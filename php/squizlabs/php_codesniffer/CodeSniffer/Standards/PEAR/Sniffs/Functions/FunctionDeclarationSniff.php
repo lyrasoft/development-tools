@@ -7,7 +7,7 @@
  * @category  PHP
  * @package   PHP_CodeSniffer
  * @author    Greg Sherwood <gsherwood@squiz.net>
- * @copyright 2006-2012 Squiz Pty Ltd (ABN 77 084 670 600)
+ * @copyright 2006-2014 Squiz Pty Ltd (ABN 77 084 670 600)
  * @license   https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
  * @link      http://pear.php.net/package/PHP_CodeSniffer
  */
@@ -20,7 +20,7 @@
  * @category  PHP
  * @package   PHP_CodeSniffer
  * @author    Greg Sherwood <gsherwood@squiz.net>
- * @copyright 2006-2012 Squiz Pty Ltd (ABN 77 084 670 600)
+ * @copyright 2006-2014 Squiz Pty Ltd (ABN 77 084 670 600)
  * @license   https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
  * @version   Release: @package_version@
  * @link      http://pear.php.net/package/PHP_CodeSniffer
@@ -279,9 +279,14 @@ class PEAR_Sniffs_Functions_FunctionDeclarationSniff implements PHP_CodeSniffer_
                 $lastLine = $tokens[$i]['line'];
             }//end if
 
-            if ($tokens[$i]['code'] === T_ARRAY) {
+            if ($tokens[$i]['code'] === T_ARRAY || $tokens[$i]['code'] === T_OPEN_SHORT_ARRAY) {
                 // Skip arrays as they have their own indentation rules.
-                $i        = $tokens[$i]['parenthesis_closer'];
+                if ($tokens[$i]['code'] === T_OPEN_SHORT_ARRAY) {
+                    $i = $tokens[$i]['bracket_closer'];
+                } else {
+                    $i = $tokens[$i]['parenthesis_closer'];
+                }
+
                 $lastLine = $tokens[$i]['line'];
                 continue;
             }

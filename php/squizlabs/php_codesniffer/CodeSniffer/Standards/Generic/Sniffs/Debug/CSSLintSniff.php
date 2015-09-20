@@ -7,7 +7,7 @@
  * @category  PHP
  * @package   PHP_CodeSniffer
  * @author    Roman Levishchenko <index.0h@gmail.com>
- * @copyright 2013 Roman Levishchenko
+ * @copyright 2013-2014 Roman Levishchenko
  * @license   https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
  * @link      http://pear.php.net/package/PHP_CodeSniffer
  */
@@ -20,7 +20,7 @@
  * @category  PHP
  * @package   PHP_CodeSniffer
  * @author    Roman Levishchenko <index.0h@gmail.com>
- * @copyright 2013 Roman Levishchenko
+ * @copyright 2013-2014 Roman Levishchenko
  * @license   https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
  * @version   Release: @package_version@
  * @link      http://pear.php.net/package/PHP_CodeSniffer
@@ -39,7 +39,7 @@ class Generic_Sniffs_Debug_CSSLintSniff implements PHP_CodeSniffer_Sniff
     /**
      * Returns the token types that this sniff is interested in.
      *
-     * @return array(int)
+     * @return int[]
      */
     public function register()
     {

@@ -6,9 +6,9 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'File_Iterator' => $vendorDir . '/phpunit/php-file-iterator/File/Iterator.php',
-    'File_Iterator_Facade' => $vendorDir . '/phpunit/php-file-iterator/File/Iterator/Facade.php',
-    'File_Iterator_Factory' => $vendorDir . '/phpunit/php-file-iterator/File/Iterator/Factory.php',
+    'File_Iterator' => $vendorDir . '/phpunit/php-file-iterator/src/Iterator.php',
+    'File_Iterator_Facade' => $vendorDir . '/phpunit/php-file-iterator/src/Facade.php',
+    'File_Iterator_Factory' => $vendorDir . '/phpunit/php-file-iterator/src/Factory.php',
     'Generic_Sniffs_Classes_DuplicateClassNameSniff' => $vendorDir . '/squizlabs/php_codesniffer/CodeSniffer/Standards/Generic/Sniffs/Classes/DuplicateClassNameSniff.php',
     'Generic_Sniffs_CodeAnalysis_EmptyStatementSniff' => $vendorDir . '/squizlabs/php_codesniffer/CodeSniffer/Standards/Generic/Sniffs/CodeAnalysis/EmptyStatementSniff.php',
     'Generic_Sniffs_CodeAnalysis_ForLoopShouldBeWhileLoopSniff' => $vendorDir . '/squizlabs/php_codesniffer/CodeSniffer/Standards/Generic/Sniffs/CodeAnalysis/ForLoopShouldBeWhileLoopSniff.php',
@@ -55,6 +55,7 @@ return array(
     'Generic_Sniffs_PHP_LowerCaseKeywordSniff' => $vendorDir . '/squizlabs/php_codesniffer/CodeSniffer/Standards/Generic/Sniffs/PHP/LowerCaseKeywordSniff.php',
     'Generic_Sniffs_PHP_NoSilencedErrorsSniff' => $vendorDir . '/squizlabs/php_codesniffer/CodeSniffer/Standards/Generic/Sniffs/PHP/NoSilencedErrorsSniff.php',
     'Generic_Sniffs_PHP_SAPIUsageSniff' => $vendorDir . '/squizlabs/php_codesniffer/CodeSniffer/Standards/Generic/Sniffs/PHP/SAPIUsageSniff.php',
+    'Generic_Sniffs_PHP_SyntaxSniff' => $vendorDir . '/squizlabs/php_codesniffer/CodeSniffer/Standards/Generic/Sniffs/PHP/SyntaxSniff.php',
     'Generic_Sniffs_PHP_UpperCaseConstantSniff' => $vendorDir . '/squizlabs/php_codesniffer/CodeSniffer/Standards/Generic/Sniffs/PHP/UpperCaseConstantSniff.php',
     'Generic_Sniffs_Strings_UnnecessaryStringConcatSniff' => $vendorDir . '/squizlabs/php_codesniffer/CodeSniffer/Standards/Generic/Sniffs/Strings/UnnecessaryStringConcatSniff.php',
     'Generic_Sniffs_VersionControl_SubversionPropertiesSniff' => $vendorDir . '/squizlabs/php_codesniffer/CodeSniffer/Standards/Generic/Sniffs/VersionControl/SubversionPropertiesSniff.php',
@@ -315,7 +316,7 @@ return array(
     'PHP_CodeSniffer_Tokenizers_JS' => $vendorDir . '/squizlabs/php_codesniffer/CodeSniffer/Tokenizers/JS.php',
     'PHP_CodeSniffer_Tokenizers_PHP' => $vendorDir . '/squizlabs/php_codesniffer/CodeSniffer/Tokenizers/PHP.php',
     'PHP_CodeSniffer_Tokens' => $vendorDir . '/squizlabs/php_codesniffer/CodeSniffer/Tokens.php',
-    'PHP_Timer' => $vendorDir . '/phpunit/php-timer/PHP/Timer.php',
+    'PHP_Timer' => $vendorDir . '/phpunit/php-timer/src/Timer.php',
     'PHP_Token' => $vendorDir . '/phpunit/php-token-stream/PHP/Token.php',
     'PHP_TokenWithScope' => $vendorDir . '/phpunit/php-token-stream/PHP/Token.php',
     'PHP_TokenWithScopeAndVisibility' => $vendorDir . '/phpunit/php-token-stream/PHP/Token.php',
@@ -596,7 +597,7 @@ return array(
     'Squiz_Sniffs_WhiteSpace_ScopeKeywordSpacingSniff' => $vendorDir . '/squizlabs/php_codesniffer/CodeSniffer/Standards/Squiz/Sniffs/WhiteSpace/ScopeKeywordSpacingSniff.php',
     'Squiz_Sniffs_WhiteSpace_SemicolonSpacingSniff' => $vendorDir . '/squizlabs/php_codesniffer/CodeSniffer/Standards/Squiz/Sniffs/WhiteSpace/SemicolonSpacingSniff.php',
     'Squiz_Sniffs_WhiteSpace_SuperfluousWhitespaceSniff' => $vendorDir . '/squizlabs/php_codesniffer/CodeSniffer/Standards/Squiz/Sniffs/WhiteSpace/SuperfluousWhitespaceSniff.php',
-    'Text_Template' => $vendorDir . '/phpunit/php-text-template/Text/Template.php',
+    'Text_Template' => $vendorDir . '/phpunit/php-text-template/src/Template.php',
     'Zend_Sniffs_Debug_CodeAnalyzerSniff' => $vendorDir . '/squizlabs/php_codesniffer/CodeSniffer/Standards/Zend/Sniffs/Debug/CodeAnalyzerSniff.php',
     'Zend_Sniffs_Files_ClosingTagSniff' => $vendorDir . '/squizlabs/php_codesniffer/CodeSniffer/Standards/Zend/Sniffs/Files/ClosingTagSniff.php',
     'Zend_Sniffs_NamingConventions_ValidVariableNameSniff' => $vendorDir . '/squizlabs/php_codesniffer/CodeSniffer/Standards/Zend/Sniffs/NamingConventions/ValidVariableNameSniff.php',

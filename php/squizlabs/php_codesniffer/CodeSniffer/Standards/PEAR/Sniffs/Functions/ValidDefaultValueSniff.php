@@ -8,7 +8,7 @@
  * @package   PHP_CodeSniffer
  * @author    Greg Sherwood <gsherwood@squiz.net>
  * @author    Marc McIntyre <mmcintyre@squiz.net>
- * @copyright 2006-2012 Squiz Pty Ltd (ABN 77 084 670 600)
+ * @copyright 2006-2014 Squiz Pty Ltd (ABN 77 084 670 600)
  * @license   https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
  * @link      http://pear.php.net/package/PHP_CodeSniffer
  */
@@ -23,7 +23,7 @@
  * @package   PHP_CodeSniffer
  * @author    Greg Sherwood <gsherwood@squiz.net>
  * @author    Marc McIntyre <mmcintyre@squiz.net>
- * @copyright 2006-2012 Squiz Pty Ltd (ABN 77 084 670 600)
+ * @copyright 2006-2014 Squiz Pty Ltd (ABN 77 084 670 600)
  * @license   https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
  * @version   Release: @package_version@
  * @link      http://pear.php.net/package/PHP_CodeSniffer
@@ -66,9 +66,13 @@ class PEAR_Sniffs_Functions_ValidDefaultValueSniff implements PHP_CodeSniffer_Sn
 
         $nextArg = $argStart;
         while (($nextArg = $phpcsFile->findNext(T_VARIABLE, ($nextArg + 1), $argEnd)) !== false) {
+            if ($tokens[($nextArg - 1)]['code'] === T_ELLIPSIS) {
+                continue;
+            }
+
             $argHasDefault = self::_argHasDefault($phpcsFile, $nextArg);
-            if (($argHasDefault === false) && ($defaultFound === true)) {
-                $error  = 'Arguments with default values must be at the end of the argument list';
+            if ($argHasDefault === false && $defaultFound === true) {
+                $error = 'Arguments with default values must be at the end of the argument list';
                 $phpcsFile->addError($error, $nextArg, 'NotAtEnd');
                 return;
             }

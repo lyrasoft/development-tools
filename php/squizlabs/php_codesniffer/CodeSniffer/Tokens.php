@@ -9,7 +9,7 @@
  * @package   PHP_CodeSniffer
  * @author    Greg Sherwood <gsherwood@squiz.net>
  * @author    Marc McIntyre <mmcintyre@squiz.net>
- * @copyright 2006-2012 Squiz Pty Ltd (ABN 77 084 670 600)
+ * @copyright 2006-2014 Squiz Pty Ltd (ABN 77 084 670 600)
  * @license   https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
  * @link      http://pear.php.net/package/PHP_CodeSniffer
  */
@@ -100,6 +100,11 @@ if (defined('T_FINALLY') === false) {
     define('T_FINALLY', 1059);
 }
 
+// Some PHP 5.6 tokens, replicated for lower versions.
+if (defined('T_ELLIPSIS') === false) {
+    define('T_ELLIPSIS', 1065);
+}
+
 /**
  * The Tokens class contains weightings for tokens based on their
  * probability of occurrence in a file.
@@ -111,7 +116,7 @@ if (defined('T_FINALLY') === false) {
  * @package   PHP_CodeSniffer
  * @author    Greg Sherwood <gsherwood@squiz.net>
  * @author    Marc McIntyre <mmcintyre@squiz.net>
- * @copyright 2006-2012 Squiz Pty Ltd (ABN 77 084 670 600)
+ * @copyright 2006-2014 Squiz Pty Ltd (ABN 77 084 670 600)
  * @license   https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
  * @version   Release: @package_version@
  * @link      http://pear.php.net/package/PHP_CodeSniffer
@@ -444,6 +449,9 @@ final class PHP_CodeSniffer_Tokens
                                     T_START_HEREDOC,
                                     T_END_HEREDOC,
                                     T_HEREDOC,
+                                    T_START_NOWDOC,
+                                    T_END_NOWDOC,
+                                    T_NOWDOC,
                                    );
 
 
