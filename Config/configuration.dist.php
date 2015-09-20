@@ -2,7 +2,7 @@
 class JConfig
 {
 	// Database settings
-	public $dbtype   = 'mysqli';
+	public $dbtype   = 'pdomysql';
 	public $host     = '';
 	public $user     = '';
 	public $password = '';
@@ -28,8 +28,8 @@ class JConfig
 	// Site Information
 	public $sitename = '{{Site Name}}';
 	public $fromname = '{{Site Name}}';
-	public $MetaDesc = 'A site by ASIKART Studios / SMS';
-	public $MetaKeys = 'asika, asikart, sms, seo, joomla';
+	public $MetaDesc = 'A site by LYRASOFT Studios / SMS';
+	public $MetaKeys = 'asika, asikart, lyrasoft, seo, joomla';
 
 	// Other config
 	public $offline = '0';

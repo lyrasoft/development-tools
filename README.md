@@ -1,8 +1,8 @@
-# SMS Development Tools
+# LYRASOFT Development Tools
 
 ## CodeSniffer
 
-The PHP_CodeSniffer Package for SMS Taiwan Developer Team.
+The PHP_CodeSniffer Package for LYRASOFT Developer Team.
 
 ### Installation
 

@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+git fetch $1 refs/pull/$2/head:pr-$2
