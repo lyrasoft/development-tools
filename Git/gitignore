@@ -1,5 +1,6 @@
 # System #
 .*
+!/.gitignore
 Thumbs.db
 
 # Composer #
