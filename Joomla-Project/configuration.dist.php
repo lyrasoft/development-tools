@@ -27,7 +27,7 @@ class JConfig
 
 	// Site Information
 	public $sitename = '{{Site Name}}';
-	public $MetaDesc = 'A site by LYRASOFT';
+	public $MetaDesc = 'A site by LYRASOFT Studios / SMS';
 	public $MetaKeys = 'asika, asikart, lyrasoft, seo, joomla';
 
 	// Mail
