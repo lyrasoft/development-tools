@@ -3,14 +3,14 @@ class JConfig
 {
 	// Database settings
 	public $dbtype   = 'pdomysql';
-	public $host     = '';
-	public $user     = '';
+	public $host     = 'localhost';
+	public $user     = 'root';
 	public $password = '';
 	public $db       = '';
 	public $dbprefix = 'foo_';
 
 	// Paths
-	public $log_path = '../log';
+	public $log_path = '../logs';
 	public $tmp_path = '../tmp';
 
 	// Cache settings
@@ -27,9 +27,21 @@ class JConfig
 
 	// Site Information
 	public $sitename = '{{Site Name}}';
-	public $fromname = '{{Site Name}}';
 	public $MetaDesc = 'A site by LYRASOFT Studios / SMS';
 	public $MetaKeys = 'asika, asikart, lyrasoft, seo, joomla';
+
+	// Mail
+	public $fromname = '{{Site Name}}';
+	public $mailonline = '1';
+	public $mailer = 'mail';
+	public $mailfrom = 'service@lyrasoft.net';
+	public $sendmail = '/usr/sbin/sendmail';
+	public $smtpauth = '0';
+	public $smtpuser = '';
+	public $smtppass = '';
+	public $smtphost = 'localhost';
+	public $smtpsecure = 'none';
+	public $smtpport = '25';
 
 	// Other config
 	public $offline = '0';
@@ -51,16 +63,10 @@ class JConfig
 	public $ftp_root = '';
 	public $ftp_enable = '0';
 	public $offset = 'Asia/Taipei';
-	public $mailonline = '1';
-	public $mailer = 'mail';
-	public $mailfrom = 'service@bm-sms.com.tw';
-	public $sendmail = '/usr/sbin/sendmail';
-	public $smtpauth = '0';
-	public $smtpuser = '';
-	public $smtppass = '';
-	public $smtphost = 'localhost';
-	public $smtpsecure = 'none';
-	public $smtpport = '25';
+	public $caching = '2';
+	public $cache_handler = 'file';
+	public $cachetime = '15';
+	public $cache_platformprefix = '0';
 	public $MetaTitle = '1';
 	public $MetaAuthor = '1';
 	public $MetaVersion = '0';
@@ -68,24 +74,46 @@ class JConfig
 	public $sef = '1';
 	public $sef_rewrite = '1';
 	public $sef_suffix = '1';
-	public $unicodeslugs = '1';
+	public $unicodeslugs = '0';
 	public $feed_limit = '100';
+	public $feed_email = 'author';
 	public $lifetime = '150';
 	public $session_handler = 'database';
+	public $memcache_persist = '1';
+	public $memcache_compress = '0';
+	public $memcache_server_host = 'localhost';
+	public $memcache_server_port = '11211';
+	public $memcached_persist = '1';
+	public $memcached_compress = '0';
+	public $memcached_server_host = 'localhost';
+	public $memcached_server_port = '11211';
+	public $redis_persist = '1';
+	public $redis_server_host = 'localhost';
+	public $redis_server_port = '6379';
+	public $redis_server_auth = '';
+	public $redis_server_db = '0';
+	public $proxy_enable = '0';
+	public $proxy_host = '';
+	public $proxy_port = '';
+	public $proxy_user = '';
+	public $proxy_pass = '';
+	public $massmailoff = '0';
 	public $MetaRights = '';
 	public $sitename_pagetitles = '0';
 	public $force_ssl = '0';
+	public $session_memcache_server_host = 'localhost';
+	public $session_memcache_server_port = '11211';
+	public $session_memcached_server_host = 'localhost';
+	public $session_memcached_server_port = '11211';
 	public $frontediting = '1';
-	public $feed_email = 'author';
 	public $cookie_domain = '';
 	public $cookie_path = '';
 	public $asset_id = '1';
-	public $language = 'zh-TW';
-	public $useStrongEncryption = '1';
+	public $language = 'en-GB';
 
 	public function __construct()
 	{
-		$this->log_path = JPATH_ROOT . '/log';
+		$this->log_path = JPATH_ROOT . '/logs';
 		$this->tmp_path = JPATH_ROOT . '/tmp';
 	}
 }
