@@ -17,6 +17,7 @@ class JConfig
 	public $caching       = '0';
 	public $cache_handler = 'file';
 	public $cachetime     = '15';
+	public $cache_platformprefix = '0';
 
 	// Error reporting settings
 	public $error_reporting = 'none';
@@ -27,8 +28,11 @@ class JConfig
 
 	// Site Information
 	public $sitename = '{{Site Name}}';
-	public $MetaDesc = 'A site by LYRASOFT Studios / SMS';
+	public $MetaDesc = 'A site by LYRASOFT';
 	public $MetaKeys = 'asika, asikart, lyrasoft, seo, joomla';
+	public $MetaTitle = '1';
+	public $MetaAuthor = '1';
+	public $MetaVersion = '0';
 
 	// Mail
 	public $fromname = '{{Site Name}}';
@@ -42,6 +46,12 @@ class JConfig
 	public $smtphost = 'localhost';
 	public $smtpsecure = 'none';
 	public $smtpport = '25';
+
+	// SEF URL
+	public $sef = '1';
+	public $sef_rewrite = '1';
+	public $sef_suffix = '1';
+	public $unicodeslugs = '0';
 
 	// Other config
 	public $offline = '0';
@@ -63,18 +73,7 @@ class JConfig
 	public $ftp_root = '';
 	public $ftp_enable = '0';
 	public $offset = 'Asia/Taipei';
-	public $caching = '2';
-	public $cache_handler = 'file';
-	public $cachetime = '15';
-	public $cache_platformprefix = '0';
-	public $MetaTitle = '1';
-	public $MetaAuthor = '1';
-	public $MetaVersion = '0';
 	public $robots = '';
-	public $sef = '1';
-	public $sef_rewrite = '1';
-	public $sef_suffix = '1';
-	public $unicodeslugs = '0';
 	public $feed_limit = '100';
 	public $feed_email = 'author';
 	public $lifetime = '150';
