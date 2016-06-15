@@ -41,7 +41,7 @@ composer install
 
 ### Step 6: 匯入資料
 
-建立資料路與測試資料
+建立資料表與測試資料
 
 ```bash
 $ php windwalker migration migrate --seed
