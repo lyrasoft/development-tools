@@ -1,17 +1,12 @@
 # LYRASOFT Development Tools
 
 ## 工作平台入口
-Google Doc
-https://drive.google.com/drive/folders/0B0Nkd9Vr2d3eMjNxTWlDY1N0OFk
 
-Slack
-https://lyrasoft.slack.com/messages/general/
-
-Trello
-https://trello.com/
-
-Mega
-https://mega.nz/#fm/VVNgiRpA
+- Google Doc https://drive.google.com/drive/folders/0B0Nkd9Vr2d3eMjNxTWlDY1N0OFk
+- Slack https://lyrasoft.slack.com/messages/general/
+- Trello https://trello.com/megamount
+- Mega https://mega.nz/#fm/VVNgiRpA
+- Lyra Document http://docs.lyrasoft.net/
 
 ## CodeSniffer
 
