@@ -1,5 +1,18 @@
 # LYRASOFT Development Tools
 
+## 工作平台入口
+Google Doc
+https://drive.google.com/drive/folders/0B0Nkd9Vr2d3eMjNxTWlDY1N0OFk
+
+Slack
+https://lyrasoft.slack.com/messages/general/
+
+Trello
+https://trello.com/
+
+Mega
+https://mega.nz/#fm/VVNgiRpA
+
 ## CodeSniffer
 
 The PHP_CodeSniffer Package for LYRASOFT Developer Team.
