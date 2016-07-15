@@ -43,9 +43,9 @@
       <data directive="@endunless" />
       <data directive="@stop" />
       <data directive="@include" injection="true" prefix="&lt;?php echo $__env-&gt;make(" suffix=")-&gt;render(); ?&gt;" />
+      <data directive="@show" />
 
       <!-- Windwalker directives -->
-      <data directive="@show" injection="true" prefix="&lt;?php show(" suffix="); ?&gt;" />
       <data directive="@sprintf" injection="true" prefix="&lt;?php echo $translator-&gt;sprintf(" suffix="); ?&gt;" />
       <data directive="@messages" />
       <data directive="@plural" injection="true" prefix="&lt;?php echo $translator-&gt;plural(" suffix="); ?&gt;" />
