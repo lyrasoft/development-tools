@@ -31,23 +31,31 @@ EDITOR etc/secret.yml # Use your own editor to modify it
 
 接著填入 database 資訊
 
-### Step 5: 安裝套件
+### Step 5: 初始化
+
+安裝套件
 
 ``` bash
 composer install
+```
+
+初始化系統設定 (會同時跑 migration)
+
+``` bash
+php windwalker run preparedev
 ```
 
 > **注意** 不要使用 `composer update`
 
 ### Step 6: 匯入資料
 
-建立資料表與測試資料
+建立資料表與測試資料 (Step 5 跑 `preparedev` 時會自動執行)
 
 ```bash
 $ php windwalker migration migrate --seed
 ```
 
-> 若不需要測資，可以省略 `--seed`
+> 若不需要測試資料，可以省略 `--seed`
 
 接下來打開 `http://{your_project}/www/dev.php` 即可
 
