@@ -55,7 +55,7 @@ Then execute：
 
 ``` bash
 $ get-pr upstream 123
-$ checkout pr-123
+$ git checkout pr-123
 ```
 
 OK we will pull and checkout to this PR.
