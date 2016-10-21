@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project version="5">
-  <component name="BladeInjectionConfiguration">
+<project version="4">
+  <component name="BladeInjectionConfiguration" escapedTextEnd="!!}" escapedTextStart="{!!">
     <customDirectives>
       <data directive="@endif" />
       <data directive="@while" injection="true" prefix="&lt;?php while (" suffix="): ?&gt;" />
