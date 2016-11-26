@@ -46,31 +46,33 @@ class Generic_Sniffs_Files_LowercasedFilenameSniff implements PHP_CodeSniffer_Sn
      * @param int                  $stackPtr  The position of the current token in
      *                                        the stack passed in $tokens.
      *
-     * @return void
+     * @return int
      */
     public function process(PHP_CodeSniffer_File $phpcsFile, $stackPtr)
     {
-        // We are only interested if this is the first open tag.
-        if ($stackPtr !== 0) {
-            if ($phpcsFile->findPrevious(T_OPEN_TAG, ($stackPtr - 1)) !== false) {
-                return;
-            }
+        $filename = $phpcsFile->getFilename();
+        if ($filename === 'STDIN') {
+            return;
         }
 
-        $fileName          = basename($phpcsFile->getFilename());
-        $lowercaseFileName = strtolower($fileName);
-        if ($fileName !== $lowercaseFileName) {
+        $filename          = basename($filename);
+        $lowercaseFilename = strtolower($filename);
+        if ($filename !== $lowercaseFilename) {
             $data  = array(
-                      $fileName,
-                      $lowercaseFileName,
+                      $filename,
+                      $lowercaseFilename,
                      );
             $error = 'Filename "%s" doesn\'t match the expected filename "%s"';
             $phpcsFile->addError($error, $stackPtr, 'NotFound', $data);
+            $phpcsFile->recordMetric($stackPtr, 'Lowercase filename', 'no');
+        } else {
+            $phpcsFile->recordMetric($stackPtr, 'Lowercase filename', 'yes');
         }
+
+        // Ignore the rest of the file.
+        return ($phpcsFile->numTokens + 1);
 
     }//end process()
 
 
 }//end class
-
-?>

@@ -38,7 +38,7 @@ class Squiz_Sniffs_Scope_MethodScopeSniff extends PHP_CodeSniffer_Standards_Abst
      */
     public function __construct()
     {
-        parent::__construct(array(T_CLASS, T_INTERFACE), array(T_FUNCTION));
+        parent::__construct(array(T_CLASS, T_INTERFACE, T_TRAIT), array(T_FUNCTION));
 
     }//end __construct()
 
@@ -62,8 +62,22 @@ class Squiz_Sniffs_Scope_MethodScopeSniff extends PHP_CodeSniffer_Standards_Abst
             return;
         }
 
-        $modifier = $phpcsFile->findPrevious(PHP_CodeSniffer_Tokens::$scopeModifiers, $stackPtr);
-        if (($modifier === false) || ($tokens[$modifier]['line'] !== $tokens[$stackPtr]['line'])) {
+        if ($phpcsFile->hasCondition($stackPtr, T_FUNCTION) === true) {
+            // Ignore nested functions.
+            return;
+        }
+
+        $modifier = null;
+        for ($i = ($stackPtr - 1); $i > 0; $i--) {
+            if ($tokens[$i]['line'] < $tokens[$stackPtr]['line']) {
+                break;
+            } else if (isset(PHP_CodeSniffer_Tokens::$scopeModifiers[$tokens[$i]['code']]) === true) {
+                $modifier = $i;
+                break;
+            }
+        }
+
+        if ($modifier === null) {
             $error = 'Visibility must be declared on method "%s"';
             $data  = array($methodName);
             $phpcsFile->addError($error, $stackPtr, 'Missing', $data);
@@ -73,5 +87,3 @@ class Squiz_Sniffs_Scope_MethodScopeSniff extends PHP_CodeSniffer_Standards_Abst
 
 
 }//end class
-
-?>

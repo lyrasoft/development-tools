@@ -2,8 +2,8 @@
     "name": "smstw/development-tools",
     "description": "SMS Taiwan Development Tools",
     "require": {
-        "squizlabs/php_codesniffer": "1.5.*",
-        "phpunit/phpunit": "3.7.*"
+        "squizlabs/php_codesniffer": "*@stable",
+        "phpunit/phpunit": "*@stable"
     },
     "authors": [
         {

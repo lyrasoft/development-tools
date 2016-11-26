@@ -58,12 +58,70 @@ class PSR2_Sniffs_Namespaces_UseDeclarationSniff implements PHP_CodeSniffer_Snif
 
         $tokens = $phpcsFile->getTokens();
 
-        // Only one USE declaration allowed per statement.
-        $next = $phpcsFile->findNext(array(T_COMMA, T_SEMICOLON), ($stackPtr + 1));
-        if ($tokens[$next]['code'] === T_COMMA) {
-            $error = 'There must be one USE keyword per declaration';
-            $phpcsFile->addError($error, $stackPtr, 'MultipleDeclarations');
+        // One space after the use keyword.
+        if ($tokens[($stackPtr + 1)]['content'] !== ' ') {
+            $error = 'There must be a single space after the USE keyword';
+            $fix   = $phpcsFile->addFixableError($error, $stackPtr, 'SpaceAfterUse');
+            if ($fix === true) {
+                $phpcsFile->fixer->replaceToken(($stackPtr + 1), ' ');
+            }
         }
+
+        // Only one USE declaration allowed per statement.
+        $next = $phpcsFile->findNext(array(T_COMMA, T_SEMICOLON, T_OPEN_USE_GROUP), ($stackPtr + 1));
+        if ($tokens[$next]['code'] !== T_SEMICOLON) {
+            $error = 'There must be one USE keyword per declaration';
+            $fix   = $phpcsFile->addFixableError($error, $stackPtr, 'MultipleDeclarations');
+            if ($fix === true) {
+                if ($tokens[$next]['code'] === T_COMMA) {
+                    $phpcsFile->fixer->replaceToken($next, ';'.$phpcsFile->eolChar.'use ');
+                } else {
+                    $baseUse      = rtrim($phpcsFile->getTokensAsString($stackPtr, ($next - $stackPtr)));
+                    $closingCurly = $phpcsFile->findNext(T_CLOSE_USE_GROUP, ($next + 1));
+
+                    $phpcsFile->fixer->beginChangeset();
+
+                    // Remove base use statement.
+                    for ($i = $stackPtr; $i <= $next; $i++) {
+                        $phpcsFile->fixer->replaceToken($i, '');
+                    }
+
+                    // Convert grouped use statements into full use statements.
+                    do {
+                        $next = $phpcsFile->findNext(PHP_CodeSniffer_Tokens::$emptyTokens, ($next + 1), $closingCurly, true);
+
+                        $whitespace = $phpcsFile->findPrevious(T_WHITESPACE, ($next - 1), null, true);
+                        for ($i = ($whitespace + 1); $i < $next; $i++) {
+                            $phpcsFile->fixer->replaceToken($i, '');
+                        }
+
+                        if ($tokens[$next]['code'] === T_CONST || $tokens[$next]['code'] === T_FUNCTION) {
+                            $phpcsFile->fixer->addContentBefore($next, 'use ');
+                            $next = $phpcsFile->findNext(PHP_CodeSniffer_Tokens::$emptyTokens, ($next + 1), $closingCurly, true);
+                            $phpcsFile->fixer->addContentBefore($next, str_replace('use ', '', $baseUse));
+                        } else {
+                            $phpcsFile->fixer->addContentBefore($next, $baseUse);
+                        }
+
+                        $next = $phpcsFile->findNext(T_COMMA, ($next + 1), $closingCurly);
+                        if ($next !== false) {
+                            $phpcsFile->fixer->replaceToken($next, ';'.$phpcsFile->eolChar);
+                        }
+                    } while ($next !== false);
+
+                    $phpcsFile->fixer->replaceToken($closingCurly, '');
+
+                    // Remove any trailing whitespace.
+                    $next       = $phpcsFile->findNext(T_SEMICOLON, $closingCurly);
+                    $whitespace = $phpcsFile->findPrevious(T_WHITESPACE, ($closingCurly - 1), null, true);
+                    for ($i = ($whitespace + 1); $i < $next; $i++) {
+                        $phpcsFile->fixer->replaceToken($i, '');
+                    }
+
+                    $phpcsFile->fixer->endChangeset();
+                }//end if
+            }//end if
+        }//end if
 
         // Make sure this USE comes after the first namespace declaration.
         $prev = $phpcsFile->findPrevious(T_NAMESPACE, ($stackPtr - 1));
@@ -90,6 +148,11 @@ class PSR2_Sniffs_Namespaces_UseDeclarationSniff implements PHP_CodeSniffer_Snif
 
         $end  = $phpcsFile->findNext(T_SEMICOLON, ($stackPtr + 1));
         $next = $phpcsFile->findNext(T_WHITESPACE, ($end + 1), null, true);
+
+        if ($tokens[$next]['code'] === T_CLOSE_TAG) {
+            return;
+        }
+
         $diff = ($tokens[$next]['line'] - $tokens[$end]['line'] - 1);
         if ($diff !== 1) {
             if ($diff < 0) {
@@ -98,8 +161,25 @@ class PSR2_Sniffs_Namespaces_UseDeclarationSniff implements PHP_CodeSniffer_Snif
 
             $error = 'There must be one blank line after the last USE statement; %s found;';
             $data  = array($diff);
-            $phpcsFile->addError($error, $stackPtr, 'SpaceAfterLastUse', $data);
-        }
+            $fix   = $phpcsFile->addFixableError($error, $stackPtr, 'SpaceAfterLastUse', $data);
+            if ($fix === true) {
+                if ($diff === 0) {
+                    $phpcsFile->fixer->addNewline($end);
+                } else {
+                    $phpcsFile->fixer->beginChangeset();
+                    for ($i = ($end + 1); $i < $next; $i++) {
+                        if ($tokens[$i]['line'] === $tokens[$next]['line']) {
+                            break;
+                        }
+
+                        $phpcsFile->fixer->replaceToken($i, '');
+                    }
+
+                    $phpcsFile->fixer->addNewline($end);
+                    $phpcsFile->fixer->endChangeset();
+                }
+            }
+        }//end if
 
     }//end process()
 
@@ -134,6 +214,3 @@ class PSR2_Sniffs_Namespaces_UseDeclarationSniff implements PHP_CodeSniffer_Snif
 
 
 }//end class
-
-
-?>

@@ -103,6 +103,8 @@ class Squiz_Sniffs_Operators_ComparisonOperatorUsageSniff implements PHP_CodeSni
                 T_IF,
                 T_ELSEIF,
                 T_INLINE_THEN,
+                T_WHILE,
+                T_FOR,
                );
 
     }//end register()
@@ -152,15 +154,37 @@ class Squiz_Sniffs_Operators_ComparisonOperatorUsageSniff implements PHP_CodeSni
 
                 $start = $phpcsFile->findNext(PHP_CodeSniffer_Tokens::$emptyTokens, ($i + 1), null, true);
             } else {
+                if (isset($tokens[$end]['parenthesis_opener']) === false) {
+                    return;
+                }
+
                 $start = $tokens[$end]['parenthesis_opener'];
+            }//end if
+        } else if ($tokens[$stackPtr]['code'] === T_FOR) {
+            if (isset($tokens[$stackPtr]['parenthesis_opener']) === false) {
+                return;
+            }
+
+            $openingBracket = $tokens[$stackPtr]['parenthesis_opener'];
+            $closingBracket = $tokens[$stackPtr]['parenthesis_closer'];
+
+            $start = $phpcsFile->findNext(T_SEMICOLON, $openingBracket, $closingBracket);
+            $end   = $phpcsFile->findNext(T_SEMICOLON, ($start + 1), $closingBracket);
+            if ($start === false || $end === false) {
+                return;
             }
         } else {
+            if (isset($tokens[$stackPtr]['parenthesis_opener']) === false) {
+                return;
+            }
+
             $start = $tokens[$stackPtr]['parenthesis_opener'];
             $end   = $tokens[$stackPtr]['parenthesis_closer'];
-        }
+        }//end if
 
         $requiredOps = 0;
         $foundOps    = 0;
+        $foundBools  = 0;
 
         for ($i = $start; $i <= $end; $i++) {
             $type = $tokens[$i]['code'];
@@ -176,41 +200,45 @@ class Squiz_Sniffs_Operators_ComparisonOperatorUsageSniff implements PHP_CodeSni
                 $foundOps++;
             }
 
-            if ($phpcsFile->tokenizerType !== 'JS') {
-                if ($tokens[$i]['code'] === T_BOOLEAN_AND || $tokens[$i]['code'] === T_BOOLEAN_OR) {
-                    $requiredOps++;
+            if ($tokens[$i]['code'] === T_TRUE || $tokens[$i]['code'] === T_FALSE) {
+                $foundBools++;
+            }
 
-                    // When the instanceof operator is used with another operator
-                    // like ===, you can get more ops than are required.
-                    if ($foundOps > $requiredOps) {
-                        $foundOps = $requiredOps;
-                    }
+            if ($phpcsFile->tokenizerType !== 'JS'
+                && ($tokens[$i]['code'] === T_BOOLEAN_AND
+                || $tokens[$i]['code'] === T_BOOLEAN_OR)
+            ) {
+                $requiredOps++;
 
-                    // If we get to here and we have not found the right number of
-                    // comparison operators, then we must have had an implicit
-                    // true operation ie. if ($a) instead of the required
-                    // if ($a === true), so let's add an error.
-                    if ($requiredOps !== $foundOps) {
-                        $error = 'Implicit true comparisons prohibited; use === TRUE instead';
-                        $phpcsFile->addError($error, $stackPtr, 'ImplicitTrue');
-                        $foundOps++;
-                    }
+                // When the instanceof operator is used with another operator
+                // like ===, you can get more ops than are required.
+                if ($foundOps > $requiredOps) {
+                    $foundOps = $requiredOps;
                 }
-            }//end if
+
+                // If we get to here and we have not found the right number of
+                // comparison operators, then we must have had an implicit
+                // true operation i.e., if ($a) instead of the required
+                // if ($a === true), so let's add an error.
+                if ($requiredOps !== $foundOps) {
+                    $error = 'Implicit true comparisons prohibited; use === TRUE instead';
+                    $phpcsFile->addError($error, $stackPtr, 'ImplicitTrue');
+                    $foundOps++;
+                }
+            }
         }//end for
 
         $requiredOps++;
 
-        if ($phpcsFile->tokenizerType !== 'JS') {
-            if ($foundOps < $requiredOps) {
-                $error = 'Implicit true comparisons prohibited; use === TRUE instead';
-                $phpcsFile->addError($error, $stackPtr, 'ImplicitTrue');
-            }
+        if ($phpcsFile->tokenizerType !== 'JS'
+            && $foundOps < $requiredOps
+            && ($requiredOps !== $foundBools)
+        ) {
+            $error = 'Implicit true comparisons prohibited; use === TRUE instead';
+            $phpcsFile->addError($error, $stackPtr, 'ImplicitTrue');
         }
 
     }//end process()
 
 
 }//end class
-
-?>
