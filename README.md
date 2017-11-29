@@ -1,16 +1,16 @@
-# LYRASOFT Development Tools
+# Allstars Development Tools
 
 ## 工作平台入口
 
-- Google Doc https://drive.google.com/drive/folders/0B0Nkd9Vr2d3eMjNxTWlDY1N0OFk
-- Slack https://lyrasoft.slack.com/messages/general/
-- Trello https://trello.com/megamount
-- Mega https://mega.nz/#fm/VVNgiRpA
-- Lyra Document http://docs.lyrasoft.net/
+- Google Doc https://drive.google.com/drive/folders/0B2oq-wNL5R_2QzF3Qy1CNk1Zbzg
+- Slack https://the-allstars.slack.com
+- Trello https://trello.com/allstarsinc
+- Mega https://mega.nz/
+- Document http://docs.the-allstars.com/
 
 ## CodeSniffer
 
-The PHP_CodeSniffer Package for LYRASOFT Developer Team.
+The PHP_CodeSniffer Package for Allstars Developer Team.
 
 ### Installation
 

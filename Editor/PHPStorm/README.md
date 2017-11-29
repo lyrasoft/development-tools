@@ -37,5 +37,3 @@
 ### File-Templates.jar
 
 包含建立新檔案時的預設模板，還有各種 class, getter and setter 的自動產生與註解模板等等
-
-> PHPStorm 2016 版以後無法匯出 File-Templates 的 jar 檔了，所以改成直接把 `fileTemplates` 資料夾複製到 PHPStorm 的 config 目錄內即可

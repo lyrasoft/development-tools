@@ -1,0 +1,5 @@
+.git
+!.gitkeep
+/.idea
+/php
+/bin

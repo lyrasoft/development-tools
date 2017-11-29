@@ -1,9 +1,0 @@
-en:
-  bundle_name: 'Joomla'
-  inforeach: 'inline foreach'
-  inendforeach: 'inline endforeach '
-  inif: 'inline if'
-  inelseif: 'inline else if'
-  inifend: 'inline endif'
-
-    
