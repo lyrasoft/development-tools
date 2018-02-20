@@ -18,21 +18,19 @@
 
 - JS
     - `col` -> `console.log()`
+    - `func` -> `function () {}`
 - PHP
     - `sh` -> `show()`
     - `st` -> `static`
-- HTML
+    - `func` -> `function () {}`
+    - `funcu` -> `function () use () {}`
+    - `e` -> `exit(' @Checkpoint')`
+- Blade (HTML)
     - `bif` -> `@if ()`
     - `bfore` -> `@foreach ()`
     - `belse` -> `@else`
     - `belseif` -> `@elseif ()`
     - `bfel` -> `@forelse ()`
-
-#### 2016-5 更新
-
-- JS & PHP 增加 `func` 來快速產生 `function () {}`
-- PHP 增加 `funcu` 產生 `function () use () {}`
-- PHP 增加 `e` -> `exit(' @Checkpoint')`
 
 ### File-Templates.jar
 
