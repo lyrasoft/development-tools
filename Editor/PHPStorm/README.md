@@ -18,7 +18,9 @@
 
 - JS
     - `col` -> `console.log()`
+    - `cor` -> `console.error()`
     - `func` -> `function () {}`
+    - `arr` -> `() => {}`
 - PHP
     - `sh` -> `show()`
     - `st` -> `static`
