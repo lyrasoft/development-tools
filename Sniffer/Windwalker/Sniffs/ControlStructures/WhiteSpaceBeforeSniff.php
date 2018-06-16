@@ -1,15 +1,16 @@
 <?php
 /**
- * Joomla! Coding Standard
+ * Part of Windwalker project.
  *
- * @package    Joomla.CodingStandard
- * @copyright  Copyright (C) 2015 Open Source Matters, Inc. All rights reserved.
- * @license    http://www.gnu.org/licenses/gpl-2.0.txt GNU General Public License Version 2 or Later
+ * @copyright  Copyright (C) 2014 - 2018 LYRASOFT. All rights reserved.
+ * @license    GNU Lesser General Public License version 3 or later.
  */
+
 namespace Windwalker\Sniffs\ControlStructures;
 
-use PHP_CodeSniffer\Sniffs\Sniff;
 use PHP_CodeSniffer\Files\File;
+use PHP_CodeSniffer\Sniffs\Sniff;
+
 /**
  * White space before a control structure.
  *
@@ -19,37 +20,31 @@ use PHP_CodeSniffer\Files\File;
  *
  * Bad1:
  * $foo = $bar;
- * if(condition)
- * {
+ * if(condition) {
  *     // blah
  * }
  *
  * Bad2:
- * if(condition)
- * {
+ * if(condition) {
  *     // blah
  * }
- * if(nextcondition)
- * {
+ * if(nextcondition) {
  *     // blubb
  * }
  *
  * Good1:
  * $foo = $bar;
  *
- * if(condition)
- * {
+ * if(condition) {
  *     // blah
  * }
  *
  * Good2:
- * if(condition)
- * {
+ * if(condition) {
  *     // blah
  * }
  *
- * if(nextcondition)
- * {
+ * if(nextcondition) {
  *     // blubb
  * }
  *
@@ -60,54 +55,68 @@ use PHP_CodeSniffer\Files\File;
  */
 class WhiteSpaceBeforeSniff implements Sniff
 {
-	/**
-	 * Registers the tokens that this sniff wants to listen for.
-	 *
-	 * @return array
-	 */
-	public function register()
-	{
-		return array(
-				T_IF,
-				T_FOR,
-				T_FOREACH,
-				T_SWITCH,
-				T_TRY,
-				T_WHILE,
-				T_DO,
-				T_RETURN,
-			   );
-	}
+    /**
+     * Registers the tokens that this sniff wants to listen for.
+     *
+     * @return array
+     */
+    public function register()
+    {
+        return [
+            T_IF,
+            T_FOR,
+            T_FOREACH,
+            T_SWITCH,
+            T_TRY,
+            T_WHILE,
+            T_DO,
+            T_RETURN,
+        ];
+    }
 
-	/**
-	 * Processes this test, when one of its tokens is encountered.
-	 *
-	 * @param   PHP_CodeSniffer\Files\File  $phpcsFile  The file being scanned.
-	 * @param   integer                     $stackPtr   The position of the current token in the stack passed in $tokens.
-	 *
-	 * @return  void
-	 */
-	public function process(File $phpcsFile, $stackPtr)
-	{
-		$tokens = $phpcsFile->getTokens();
+    /**
+     * Processes this test, when one of its tokens is encountered.
+     *
+     * @param   \PHP_CodeSniffer\Files\File $phpcsFile The file being scanned.
+     * @param   integer                     $stackPtr  The position of the current token in the stack passed in $tokens.
+     *
+     * @return  void
+     */
+    public function process(File $phpcsFile, $stackPtr)
+    {
+        $tokens = $phpcsFile->getTokens();
 
-		if (isset($tokens[$stackPtr]['scope_opener']) === false && $tokens[$stackPtr]['code'] !== T_RETURN)
-		{
-			return;
-		}
+        if (isset($tokens[$stackPtr]['scope_opener']) === false && $tokens[$stackPtr]['code'] !== T_RETURN) {
+            return;
+        }
 
-		$prev = $phpcsFile->findPrevious(array(T_SEMICOLON, T_CLOSE_CURLY_BRACKET), ($stackPtr - 1), null, false);
+        $allowPrevious = [
+            T_IF,
+            T_FOR,
+            T_FOREACH,
+            T_SWITCH,
+            T_TRY,
+            T_WHILE,
+            T_DO,
+            T_ELSE,
+            T_ELSEIF,
+            T_CATCH,
+            T_FINALLY
+        ];
 
-		if ($tokens[$stackPtr]['line'] - 1 === $tokens[$prev]['line'])
-		{
-			$error = 'Please consider an empty line before the %s statement;';
-			$data  = array($tokens[$stackPtr]['content']);
-			$fix   = $phpcsFile->addFixableError($error, $stackPtr, 'SpaceBefore', $data);
+        $prev  = $phpcsFile->findPrevious([T_SEMICOLON, T_CLOSE_CURLY_BRACKET], $stackPtr - 1, null, false);
+        $allow = $phpcsFile->findPrevious($allowPrevious, $stackPtr - 1, null, false);
 
-			if ($fix === true)
-			{
-				$phpcsFile->fixer->addNewlineBefore($stackPtr);
-			}
-		}
-	}
+        $prevLine = $tokens[$stackPtr]['line'] - 1;
+
+        if ($prevLine === $tokens[$prev]['line'] && $prevLine !== $tokens[$allow]['line']) {
+            $error = 'Please consider an empty line before the %s statement;';
+            $data  = [$tokens[$stackPtr]['content']];
+            $fix   = $phpcsFile->addFixableError($error, $stackPtr, 'SpaceBefore', $data);
+
+            if ($fix === true) {
+                $phpcsFile->fixer->addNewlineBefore($stackPtr);
+            }
+        }
+    }
 }
