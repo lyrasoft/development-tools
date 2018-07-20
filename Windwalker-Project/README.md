@@ -39,7 +39,7 @@ EDITOR etc/secret.yml # Use your own editor to modify it
 composer install
 ```
 
-初始化系統設定 (會同時跑 migration)
+初始化系統設定 (會同時跑 yarn install 與 migration)
 
 ``` bash
 php windwalker run preparedev
@@ -52,39 +52,37 @@ php windwalker run preparedev
 建立資料表與測試資料 (Step 5 跑 `preparedev` 時會自動執行)
 
 ```bash
-$ php windwalker migration migrate --seed
+php windwalker migration migrate --seed
 ```
 
 > 若不需要測試資料，可以省略 `--seed`
 
 接下來打開 `http://{your_project}/www/dev.php` 即可
 
+### Step 7: 編譯 CSS, JS
+
+```bash
+yarn build
+```
+
+前面跑 preparedev 時也會提前編譯好
+
 ## 後台
 
-使用 UserSeeder 內建立的帳號登入
+使用 UserInit Migration 內建立的帳號登入
 
 ## 佈景
 
 - 後台佈景參考檔案在 theme/{admin_theme} 內。
 - 前台佈景參考檔案在 theme/{front_theme} 內。
 
-## LESS 編寫
+## CSS JS 編寫
 
-建立或編輯 `less` 檔案，請使用 PhpStorm 的 [File Watcher](https://goo.gl/VwgGZb) 自動把 LESS 編成 CSS 檔案
+加入要增加的 scss js 檔案在 `fusionfile.js` 內，參考 [Windwalker Fusion](https://github.com/ventoviro/windwalker-fusion)
 
-> 只要有 `.less` 存在的檔案，請勿直接編輯 `.css` 檔
+執行 `yarn build` 或 `yarn watch` 來編譯 assets
 
-## Asset 壓縮
-
-可以用
-
-``` bash
-php windwalker phoenix asset minify --dir={folder}
-```
-
-來壓縮整個 www/media/{folder} 底下的所有 CSS & JS
-
-或安裝 PhpStorm 的 [Compression Plugin](https://plugins.jetbrains.com/plugin/6740)
+或是另寫特殊 task 來用 `yarn build {task1} {task2}`
 
 ## SMTP 測試帳號
 
@@ -96,7 +94,7 @@ Mailtrap: https://mailtrap.io
 - Security: `tls`
 - Post: `2525`
 
-帳密請自行上 doc 查詢
+帳密請自行上 doc 網站或 1Password 查詢
 
 ## 測試機
 
