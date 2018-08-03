@@ -30,14 +30,4 @@
       <option name="PHP" value="true" />
     </context>
   </template>
-  <template name="/t" value="// TODO:: 手術刀&#10;show($END$); &#10;exit(&quot;@_____GG&quot;);" toReformat="false" toShortenFQNames="true">
-    <context>
-      <option name="PHP" value="true" />
-    </context>
-  </template>
-  <template name="at" value="// TODO: $END$" toReformat="false" toShortenFQNames="true">
-    <context>
-      <option name="PHP" value="true" />
-    </context>
-  </template>
 </templateSet>
