@@ -6,10 +6,10 @@
 namespace ${NAMESPACE};
 #end
 
-use Windwalker\Console\Command\Command;
+use Windwalker\Core\Console\CoreCommand;
 
 #parse("PHP Class Doc Comment.php")
-class ${NAME} extends Command
+class ${NAME} extends CoreCommand
 {
     /**
      * Property name.
@@ -29,8 +29,6 @@ class ${NAME} extends Command
      * The usage to tell user how to use this command.
      *
      * @var string
-     *
-     * @since  2.0
      */
     protected ${DS}usage = '%s <cmd><command></cmd> <option>[option]</option>';
 
@@ -38,8 +36,6 @@ class ${NAME} extends Command
      * The manual about this command.
      *
      * @var  string
-     *
-     * @since  2.0
      */
     protected ${DS}help;
 
@@ -47,8 +43,6 @@ class ${NAME} extends Command
      * Initialise command.
      *
      * @return void
-     *
-     * @since  2.0
      */
     protected function init()
     {
@@ -58,9 +52,7 @@ class ${NAME} extends Command
     /**
      * Execute this command.
      *
-     * @return int
-     *
-     * @since  2.0
+     * @return int|bool
      */
     protected function doExecute()
     {
