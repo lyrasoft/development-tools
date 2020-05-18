@@ -22,14 +22,24 @@ git clone {Github URL}
 git checkout {branch}
 ```
 
-### Step 4: 設定 `secret.yml`
+### Step 4: 設定 `.env`
+
+用 CLI 複製編輯或直接用 IDE 處理。
 
 ```bash
-cp etc/secret.dist.yml etc/secret.yml
-EDITOR etc/secret.yml # Use your own editor to modify it
+cp .env.dist .env
+EDITOR .env # Use your own editor to modify it
 ```
 
-接著填入 database 資訊
+接著填入 DATABASE 資訊
+
+在 `.env` 最下面加上
+
+```
+APP_ENV=dev
+```
+
+才能正常跑 migration
 
 ### Step 5: 初始化
 
