@@ -57,12 +57,10 @@ cat <<END >/etc/apache2/sites-available/$WEBSITE.conf
         ServerName $WEBSITE
         ServerAlias www.$WEBSITE
         ServerAdmin webmaster@localhost
-        DocumentRoot /var/www/$HOSTNAME/$WEBSITE
+        DocumentRoot /var/www/$HOSTNAME
 </VirtualHost>
 END
-
 mkdir -p /var/www/html/$WEBSITE
-
 echo "<h1>LYRASOFT LAMP Ubuntu installed.<h1/></html>" > index.html
 sudo chown -R $SSUSER:$SSUSER /var/www
 sudo a2ensite $WEBSITE.conf
@@ -89,16 +87,14 @@ npm i yarn -g
 # Configure phpmyadmin
 echo "Install and configure phpmyadmin"
 DEBIAN_FRONTEND=noninteractive apt install phpmyadmin -yq
-
 cat <<END >/etc/phpmyadmin/conf.d/autologin.php
 <?php
-$cfg['Servers'][$i]['auth_type'] = 'config';
-$cfg['Servers'][$i]['user'] = 'root';
-$cfg['Servers'][$i]['password'] = '$DB_PASSWORD';
+\$cfg['Servers'][\$i]['auth_type'] = 'config';
+\$cfg['Servers'][\$i]['user'] = 'root';
+\$cfg['Servers'][\$i]['password'] = '$DB_PASSWORD';
 END
 
 # Configure Composer
 echo "Install Composer"
 apt install composer -y
-
 echo "Install Complete!"
