@@ -24,20 +24,23 @@ sudo apt-get install zip unzip php-bcmath php-gd php-xml php-curl php-mbstring p
 
 # Reset MySQL root password
 echo "Reset MySQL password"
-
 # mysql -u root -e "CREATE DATABASE `$DB_NAME`"
 mysql -u root -e "ALTER USER 'root'@'localhost' IDENTIFIED WITH caching_sha2_password BY '$DB_PASSWORD';"
+
 echo "Configure Apache Vhost"
 
 # configuration of default vhost file
 cat <<END >/etc/apache2/sites-available/000-default.conf
 <VirtualHost *:80>
     #ServerName www.example.com
+
     ServerAdmin webmaster@localhost
     DocumentRoot /var/www/html
     Alias /db /usr/share/phpmyadmin
+
     ErrorLog ${APACHE_LOG_DIR}/error.log
     CustomLog ${APACHE_LOG_DIR}/access.log combined
+
     <Directory />
         Order allow,deny
         Allow from 127.0.0.1
@@ -52,6 +55,7 @@ cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/$W
 cat <<END >/etc/apache2/sites-available/$WEBSITE.conf
 <Directory /var/www/$HOSTNAME/$WEBSITE>
     Require all granted
+    AllowOverride All
 </Directory>
 <VirtualHost *:80>
         ServerName $WEBSITE
@@ -60,9 +64,11 @@ cat <<END >/etc/apache2/sites-available/$WEBSITE.conf
         DocumentRoot /var/www/$HOSTNAME
 </VirtualHost>
 END
+
 mkdir -p /var/www/html/$WEBSITE
 echo "<h1>LYRASOFT LAMP Ubuntu installed.<h1/></html>" > index.html
 sudo chown -R $SSUSER:$SSUSER /var/www
+
 sudo a2ensite $WEBSITE.conf
 
 # Add Mutex
@@ -71,6 +77,7 @@ echo "Mutex flock" >> /etc/apache2/apache2.conf
 # Replace user
 sed -i "s/export APACHE_RUN_USER=www-data/export APACHE_RUN_USER=$SSUSER/g" /etc/apache2/envvars
 sed -i "s/export APACHE_RUN_GROUP=www-data/export APACHE_RUN_GROUP=$SSUSER/g" /etc/apache2/envvars
+
 systemctl reload apache2
 systemctl restart apache2
 
@@ -87,6 +94,7 @@ npm i yarn -g
 # Configure phpmyadmin
 echo "Install and configure phpmyadmin"
 DEBIAN_FRONTEND=noninteractive apt install phpmyadmin -yq
+
 cat <<END >/etc/phpmyadmin/conf.d/autologin.php
 <?php
 \$cfg['Servers'][\$i]['auth_type'] = 'config';
@@ -97,4 +105,5 @@ END
 # Configure Composer
 echo "Install Composer"
 apt install composer -y
+
 echo "Install Complete!"
