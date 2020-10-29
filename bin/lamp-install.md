@@ -65,7 +65,7 @@ cat <<END >/etc/apache2/sites-available/$WEBSITE.conf
 </VirtualHost>
 END
 
-mkdir -p /var/www/html/$WEBSITE
+mkdir -p /var/www/$HOSTNAME
 echo "<h1>LYRASOFT LAMP Ubuntu installed.<h1/></html>" > index.html
 sudo chown -R $SSUSER:$SSUSER /var/www
 
