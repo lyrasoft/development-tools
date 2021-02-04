@@ -53,7 +53,7 @@ cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/$W
 
 # configuration of vhost file
 cat <<END >/etc/apache2/sites-available/$WEBSITE.conf
-<Directory /var/www/$HOSTNAME/$WEBSITE>
+<Directory /var/www/$HOSTNAME>
     Require all granted
     AllowOverride All
 </Directory>
