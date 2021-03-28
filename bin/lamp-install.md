@@ -38,8 +38,8 @@ cat <<END >/etc/apache2/sites-available/000-default.conf
     DocumentRoot /var/www/html
     Alias /db /usr/share/phpmyadmin
 
-    ErrorLog ${APACHE_LOG_DIR}/error.log
-    CustomLog ${APACHE_LOG_DIR}/access.log combined
+    ErrorLog \${APACHE_LOG_DIR}/error.log
+    CustomLog \${APACHE_LOG_DIR}/access.log combined
 
     <Directory />
         Order allow,deny
