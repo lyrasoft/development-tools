@@ -1,5 +1,9 @@
 <?php
+
 #parse("PHP File Header.php")
+
+
+declare(strict_types=1);
 
 #if (${NAMESPACE})
 
@@ -7,11 +11,7 @@ namespace ${NAMESPACE};
 
 #end
 
-/**
- * ${NAME}
- *
- * @since  {DEPLOY_VERSION}
- */
+#parse("PHP Trait Doc Comment.php")
 trait ${NAME}
 {
 

@@ -1,6 +1,4 @@
 /**
- * Method to set property ${FIELD_NAME}
- * 
  * @param   ${TYPE_HINT}  $${PARAM_NAME}
  *
 #if (${STATIC} == "static")
@@ -8,10 +6,8 @@
 #else
  * @return  static  Return self to support chaining.
 #end
- *
- * @since  __DEPLOY_VERSION__
  */
-public ${STATIC} function set${NAME}($${PARAM_NAME})
+public ${STATIC} function set${NAME}(#if (${SCALAR_TYPE_HINT})${SCALAR_TYPE_HINT} #else#end$${PARAM_NAME})#if(${RETURN_TYPE}): static#else#end
 {
 #if (${STATIC} == "static")
     static::$${FIELD_NAME} = $${PARAM_NAME};

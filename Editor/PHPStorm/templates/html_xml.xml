@@ -138,11 +138,4 @@
       <option name="HTML" value="true" />
     </context>
   </template>
-  <template name="tabs" value="&lt;ul class=&quot;nav nav-tabs&quot; id=&quot;$ID$-tabs&quot; role=&quot;tablist&quot;&gt;&#10;    &lt;li class=&quot;nav-item&quot;&gt;&#10;        &lt;a class=&quot;nav-link active&quot; id=&quot;$FIRST$-tab&quot; href=&quot;#$FIRST$&quot; data-toggle=&quot;tab&quot; &#10;            role=&quot;tab&quot; aria-controls=&quot;$FIRST$&quot; aria-selected=&quot;true&quot;&gt;&#10;            $END$&#10;        &lt;/a&gt;&#10;    &lt;/li&gt;&#10;&lt;/ul&gt;&#10;&#10;&lt;div class=&quot;tab-content&quot;&gt;&#10;    &lt;div class=&quot;tab-pane fade show active&quot; id=&quot;$FIRST$&quot; role=&quot;tabpanel&quot; aria-labelledby=&quot;$FIRST$-tab&quot;&gt;&#10;        &#10;    &lt;/div&gt;&#10;&lt;/div&gt;" description="" toReformat="true" toShortenFQNames="true">
-    <variable name="ID" expression="" defaultValue="" alwaysStopAt="true" />
-    <variable name="FIRST" expression="" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="HTML" value="true" />
-    </context>
-  </template>
 </templateSet>

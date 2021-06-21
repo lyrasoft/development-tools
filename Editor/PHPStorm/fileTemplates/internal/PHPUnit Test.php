@@ -1,5 +1,9 @@
 <?php
+
 #parse("PHP File Header.php")
+
+
+declare(strict_types=1);
 
 #if (${NAMESPACE})
 
@@ -7,39 +11,19 @@ namespace ${NAMESPACE};
 #end
 
 use PHPUnit\Framework\TestCase;
+use ${TESTED_NAMESPACE}\\${TESTED_NAME};
 
-/**
- * The ${NAME} class.
- * 
- * @since  {DEPLOY_VERSION}
- */
+#parse("PHP Class Doc Comment.php")
 class ${NAME} extends TestCase
 {
-    /**
-     * Test instance.
-     *
-     * @var object
-     */
-    protected $instance;
+    protected ?${TESTED_NAME} $instance;
 
-    /**
-     * Sets up the fixture, for example, opens a network connection.
-     * This method is called before a test is executed.
-     *
-     * @return void
-     */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->instance = null;
     }
 
-    /**
-     * Tears down the fixture, for example, closes a network connection.
-     * This method is called after a test is executed.
-     *
-     * @return void
-     */
-    protected function tearDown()
+    protected function tearDown(): void
     {
     }
 }
