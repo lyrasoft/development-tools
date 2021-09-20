@@ -36,7 +36,7 @@
       <option name="PHP" value="true" />
     </context>
   </template>
-  <template name="col" value="#[Column('$NAME$')]&#10;protected $TYPE$ $$$PROP$ = '$DEF$';" toReformat="true" toShortenFQNames="true">
+  <template name="col" value="#[Column('$NAME$')]&#10;protected $TYPE$ $$$PROP$ = '$DEF$';" description="" toReformat="true" toShortenFQNames="true">
     <variable name="NAME" expression="" defaultValue="" alwaysStopAt="true" />
     <variable name="TYPE" expression="" defaultValue="&quot;string&quot;" alwaysStopAt="true" />
     <variable name="PROP" expression="camelCase(NAME)" defaultValue="" alwaysStopAt="true" />
