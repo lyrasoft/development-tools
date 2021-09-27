@@ -22,31 +22,20 @@ git clone {Github URL}
 git checkout {branch}
 ```
 
-### Step 4: 設定 `.env`
-
-用 CLI 複製編輯或直接用 IDE 處理。
-
-```bash
-cp .env.dist .env
-EDITOR .env # Use your own editor to modify it
-```
-
-接著填入 DATABASE 資訊
-
-在 `.env` 最下面加上
-
-```
-APP_ENV=dev
-```
-
-才能正常跑 migration
-
-### Step 5: 初始化
+### Step 4: 安裝套件
 
 安裝套件
 
 ``` bash
 composer install
+```
+
+### Step 4: 設定 `.env` 與初始化
+
+Run
+
+```bash
+composer run reinstall
 ```
 
 初始化系統設定 (會同時跑 yarn install 與 migration)
@@ -62,12 +51,14 @@ php windwalker run preparedev
 建立資料表與測試資料 (Step 5 跑 `preparedev` 時會自動執行)
 
 ```bash
-php windwalker migration migrate --seed
+php windwalker mig:reset -fs
 ```
 
-> 若不需要測試資料，可以省略 `--seed`
+> 若不需要測試資料，可以省略 `-s`
 
 接下來打開 `http://{your_project}/www/dev.php` 即可
+
+或執行 `php windwalker server:start`
 
 ### Step 7: 編譯 CSS, JS
 
@@ -88,23 +79,11 @@ yarn build
 
 ## CSS JS 編寫
 
-加入要增加的 scss js 檔案在 `fusionfile.js` 內，參考 [Windwalker Fusion](https://github.com/ventoviro/windwalker-fusion)
+加入要增加的 scss js 檔案在 `fusionfile.js` 內，參考 [Windwalker Fusion](https://github.com/windwalker-io/core/tree/master/assets/fusion#readme)
 
 執行 `yarn build` 或 `yarn watch` 來編譯 assets
 
 或是另寫特殊 task 來用 `yarn build {task1} {task2}`
-
-## SMTP 測試帳號
-
-Mailtrap: https://mailtrap.io
-
-- Host: `mailtrap.io`
-- Username: `**********`
-- Password: `**********`
-- Security: `tls`
-- Post: `2525`
-
-帳密請自行上 doc 網站或 1Password 查詢
 
 ## 測試機
 
