@@ -75,6 +75,7 @@ sudo chown -R $SSUSER:$SSUSER /var/www
 
 sudo a2ensite $WEBSITE.conf
 sudo a2enmod rewrite
+sudo a2enmod headers
 
 # Add Mutex
 echo "Mutex flock" >> /etc/apache2/apache2.conf
