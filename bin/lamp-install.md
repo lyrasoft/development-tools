@@ -15,6 +15,7 @@ echo "127.0.0.1   $HOSTNAME" >> /etc/hosts
 echo "APT update"
 sudo apt-get update
 sudo apt-get install software-properties-common -y
+sudo add-apt-repository ppa:ondrej/php -y
 sudo apt-get update
 
 # Install LAMP
