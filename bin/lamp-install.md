@@ -64,8 +64,8 @@ cat <<END >/etc/apache2/sites-available/$WEBSITE.conf
         ServerAdmin webmaster@localhost
         DocumentRoot /var/www/$HOSTNAME
         
-        ErrorLog ${APACHE_LOG_DIR}/error.log
-        CustomLog ${APACHE_LOG_DIR}/access.log combined
+        ErrorLog \${APACHE_LOG_DIR}/error.log
+        CustomLog \${APACHE_LOG_DIR}/access.log combined
 </VirtualHost>
 END
 
