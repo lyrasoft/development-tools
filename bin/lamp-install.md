@@ -73,6 +73,7 @@ echo "<h1>LYRASOFT LAMP Ubuntu installed.<h1/></html>" > index.html
 sudo chown -R $SSUSER:$SSUSER /var/www
 
 sudo a2ensite $WEBSITE.conf
+sudo a2enmod rewrite
 
 # Add Mutex
 echo "Mutex flock" >> /etc/apache2/apache2.conf
@@ -89,8 +90,8 @@ echo "Install PHP packages"
 apt-get install zip unzip php-pear php-fpm php-dev php-zip php-curl php-xmlrpc php-bcmath php-gd php-mysql php-mbstring php-xml php-intl -y --allow-unauthenticated
 
 # Configure Node
-echo "Install node 10 and yarn"
-curl -sL https://deb.nodesource.com/setup_10.x | bash -
+echo "Install node 14 and yarn"
+curl -sL https://deb.nodesource.com/setup_14.x | bash -
 sudo apt-get install -y nodejs
 npm i yarn -g
 
