@@ -45,4 +45,13 @@
       <option name="PHP Class Member" value="true" />
     </context>
   </template>
+  <template name="acc" value="@method $$this $SETTER$($TYPE$ $$value)&#10;* @method $TYPE$ $ACTION$$GETTER$()" description="" toReformat="false" toShortenFQNames="true">
+    <variable name="SETTER" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="TYPE" expression="" defaultValue="&quot;mixed&quot;" alwaysStopAt="true" />
+    <variable name="ACTION" expression="" defaultValue="&quot;get&quot;" alwaysStopAt="true" />
+    <variable name="GETTER" expression="capitalize(SETTER)" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="PHP Comment" value="true" />
+    </context>
+  </template>
 </templateSet>
