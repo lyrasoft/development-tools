@@ -18,10 +18,14 @@ sudo apt-get install software-properties-common -y
 sudo add-apt-repository ppa:ondrej/php -y
 sudo apt-get update
 
+# Basic Packages
+sudo apt-get install htop -y
+
 # Install LAMP
 echo "Install LAMP"
 sudo apt-get install lamp-server^ -y
 sudo apt-get install zip unzip php-bcmath php-gd php-xml php-curl php-mbstring php-zip php-intl  -y
+sudo apt-get install libapache2-mod-php -y
 
 # Reset MySQL root password
 echo "Reset MySQL password"
