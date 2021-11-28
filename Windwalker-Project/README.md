@@ -35,7 +35,7 @@ composer install
 Run
 
 ```bash
-composer run reinstall
+composer run env
 ```
 
 初始化系統設定 (會同時跑 yarn install 與 migration)
