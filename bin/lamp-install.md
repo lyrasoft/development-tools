@@ -42,6 +42,7 @@ cat <<END >/etc/apache2/sites-available/000-default.conf
     ServerAdmin webmaster@localhost
     DocumentRoot /var/www/html
     Alias /db /usr/share/phpmyadmin
+    Alias /backup.php /var/www/backup/backup.php
 
     ErrorLog \${APACHE_LOG_DIR}/error.log
     CustomLog \${APACHE_LOG_DIR}/access.log combined
