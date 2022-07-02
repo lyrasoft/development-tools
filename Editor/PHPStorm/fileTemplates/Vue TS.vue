@@ -1,5 +1,5 @@
 <template>
-  #[[$END$]]#
+#[[$END$]]#
 </template>
 
 <script lang="ts">
