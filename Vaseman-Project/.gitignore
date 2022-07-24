@@ -17,3 +17,8 @@ Thumbs.db
 .env.local
 .env*.local
 !.env.dist
+
+# 如果想保留 html/css/js 被記錄下來，就移除下面這一段 #
+/assets
+**/*.html
+!.vaseman/**/*.html
