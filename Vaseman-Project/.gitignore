@@ -18,7 +18,7 @@ Thumbs.db
 .env*.local
 !.env.dist
 
-# 如果想避免 html/css/js 被記錄下來，就反註解下面這幾行 #
-# /assets
-# **/*.html
-# !.vaseman/**/*.html
+# 如果想將 html/css/js 記錄到 git 裡面，移除下面這幾行 #
+/assets
+**/*.html
+!.vaseman/**/*.html
