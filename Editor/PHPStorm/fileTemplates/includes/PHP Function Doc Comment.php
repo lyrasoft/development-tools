@@ -1,7 +1,7 @@
 /**
 #if (${PARAM_DOC} != '')
-${PARAM_DOC}#end
- *
+${PARAM_DOC}
+#end
  * @return  ${TYPE_HINT}
 #if (${THROWS_DOC} != '')
  * 

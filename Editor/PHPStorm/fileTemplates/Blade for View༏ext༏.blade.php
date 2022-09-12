@@ -1,5 +1,9 @@
 <?php
 
+declare(strict_types=1);
+
+namespace App\View;
+
 /**
  * Global variables
  * --------------------------------------------------------------
@@ -11,8 +15,6 @@
  * @var ${DS}asset     AssetService    The Asset manage service.
  * @var ${DS}lang      LangService     The language translation service.
  */
-
-declare(strict_types=1);
 
 use Windwalker\Core\Application\AppContext;
 use Windwalker\Core\Asset\AssetService;
