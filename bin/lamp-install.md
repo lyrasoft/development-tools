@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Replace needrestart actions to "auto" for 22.04-LTS
+# See https://stackoverflow.com/a/73397970
+sed -i "/#\$nrconf{restart} = 'i';/s/.*/\$nrconf{restart} = 'a';/" /etc/needrestart/needrestart.conf
+
 # Create User
 echo "Create user"
 adduser $SSUSER --disabled-password --gecos "" && \
