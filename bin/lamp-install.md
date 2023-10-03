@@ -46,7 +46,6 @@ cat <<END >/etc/apache2/sites-available/000-default.conf
     ServerAdmin webmaster@localhost
     DocumentRoot /var/www/html
     Alias /db /usr/share/phpmyadmin
-    Alias /backup.php /var/www/backup/backup.php
 
     ErrorLog \${APACHE_LOG_DIR}/error.log
     CustomLog \${APACHE_LOG_DIR}/access.log combined
@@ -72,6 +71,7 @@ cat <<END >/etc/apache2/sites-available/$WEBSITE.conf
         ServerAlias www.$WEBSITE
         ServerAdmin webmaster@localhost
         DocumentRoot /var/www/$HOSTNAME
+        Alias /backup.php /var/www/backup/backup.php
         
         ErrorLog \${APACHE_LOG_DIR}/error.log
         CustomLog \${APACHE_LOG_DIR}/access.log combined
@@ -102,7 +102,7 @@ apt-get install zip unzip php-pear php-fpm php-dev php-zip php-curl php-xmlrpc p
 
 # Configure Node
 echo "Install node 14 and yarn"
-curl -sL https://deb.nodesource.com/setup_14.x | bash -
+curl -sL https://deb.nodesource.com/setup_16.x | bash -
 sudo apt-get install -y nodejs
 npm i yarn -g
 
