@@ -16,10 +16,6 @@
     <option name="USE_GENERAL_STYLE" value="false" />
     <option name="KEYWORD_CASE" value="2" />
   </H2CodeStyleSettings>
-  <H2CodeStyleSettings version="6">
-    <option name="USE_GENERAL_STYLE" value="false" />
-    <option name="KEYWORD_CASE" value="2" />
-  </H2CodeStyleSettings>
   <HSQLCodeStyleSettings version="6">
     <option name="USE_GENERAL_STYLE" value="false" />
     <option name="KEYWORD_CASE" value="2" />
@@ -70,8 +66,8 @@
     <option name="BLANK_LINES_AFTER_OPENING_TAG" value="1" />
     <option name="KEEP_BLANK_LINES_AFTER_LBRACE" value="0" />
     <option name="FORCE_SHORT_DECLARATION_ARRAY_STYLE" value="true" />
-    <option name="PLACE_PARENS_FOR_CONSTRUCTOR" value="1" />
     <option name="NEW_LINE_AFTER_PHP_OPENING_TAG" value="true" />
+    <option name="PLACE_PARENS_FOR_CONSTRUCTOR" value="1" />
   </PHPCodeStyleSettings>
   <PostgresCodeStyleSettings version="6">
     <option name="USE_GENERAL_STYLE" value="false" />
@@ -91,6 +87,7 @@
   <TypeScriptCodeStyleSettings version="0">
     <option name="FORCE_SEMICOLON_STYLE" value="true" />
     <option name="USE_DOUBLE_QUOTES" value="false" />
+    <option name="SPACES_WITHIN_OBJECT_LITERAL_BRACES" value="true" />
     <option name="SPACES_WITHIN_IMPORTS" value="true" />
     <option name="IMPORT_SORT_MODULE_NAME" value="true" />
   </TypeScriptCodeStyleSettings>

@@ -1,8 +1,5 @@
 <?php
 
-#parse("PHP File Header.php")
-
-
 declare(strict_types=1);
 
 #if (${NAMESPACE})
@@ -10,8 +7,6 @@ declare(strict_types=1);
 namespace ${NAMESPACE};
 
 #end
-
-#parse("PHP Interface Doc Comment.php")
 interface ${NAME}
 {
 
