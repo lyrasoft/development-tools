@@ -20,6 +20,7 @@ echo "APT update"
 sudo apt-get update
 sudo apt-get install software-properties-common -y
 sudo add-apt-repository ppa:ondrej/php -y
+sudo add-apt-repository ppa:ondrej/apache2 -y # Apache 2.4.60 up - Can be remove in the future
 sudo apt-get update
 
 # Basic Packages
