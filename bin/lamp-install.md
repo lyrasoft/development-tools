@@ -3,6 +3,9 @@
 # Replace needrestart actions to "auto" for 22.04-LTS
 # See https://stackoverflow.com/a/73397970
 sed -i "/#\$nrconf{restart} = 'i';/s/.*/\$nrconf{restart} = 'a';/" /etc/needrestart/needrestart.conf
+# See https://askubuntu.com/a/1424249
+sed -i "s/#\$nrconf{kernelhints} = -1;/\$nrconf{kernelhints} = -1;/g" /etc/needrestart/needrestart.conf
+
 
 # Create User
 echo "Create user"
