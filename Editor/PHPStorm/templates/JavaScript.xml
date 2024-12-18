@@ -3,6 +3,7 @@
     <variable name="PARAMS" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="JAVA_SCRIPT" value="true" />
+      <option name="TypeScript" value="true" />
     </context>
   </template>
   <template name="func" value="function $NAME$($PARAMETERS$) {&#10;    $END$&#10;}" description="Closure function" toReformat="true" toShortenFQNames="true">
@@ -17,12 +18,15 @@
     <variable name="PARAMETERS" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="JAVA_SCRIPT" value="true" />
+      <option name="TypeScript" value="true" />
     </context>
   </template>
   <template name="cor" value="console.error($PARAMS$);" description="console.error()" toReformat="true" toShortenFQNames="true">
     <variable name="PARAMS" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="JAVA_SCRIPT" value="true" />
+      <option name="TypeScript" value="true" />
+      <option name="Vue" value="true" />
     </context>
   </template>
 </templateSet>

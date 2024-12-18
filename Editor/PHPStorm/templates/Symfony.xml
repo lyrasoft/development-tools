@@ -1,0 +1,236 @@
+<templateSet group="Symfony">
+  <template name="route" value="#[Route(path: '/$PATH$', name: '$NAME$', methods: ['$METHOD$'])]" description="Symfony #[Route(...)]" toReformat="true" toShortenFQNames="true">
+    <variable name="PATH" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="METHOD" expression="" defaultValue="" alwaysStopAt="true" />
+    <context />
+  </template>
+  <template name="notBlank" value="#[Assert\NotBlank(allowNull: $ALLOWNULL$)]" description="Symfony #[Assert\NotBlank]" toReformat="true" toShortenFQNames="true">
+    <variable name="ALLOWNULL" expression="" defaultValue="&quot;null&quot;" alwaysStopAt="true" />
+    <context />
+  </template>
+  <template name="groups" value="#[Groups(groups: ['$GROUP$'])]" description="Symfony #[Groups(...)]" toReformat="true" toShortenFQNames="true">
+    <variable name="GROUP" expression="" defaultValue="" alwaysStopAt="true" />
+    <context />
+  </template>
+  <template name="serializedName" value="#[SerializedName(serializedName: '$NAME$')]" description="Symfony #[SerializedName(...)]" toReformat="true" toShortenFQNames="true">
+    <variable name="NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <context />
+  </template>
+  <template name="choice" value="#[Assert\Choice(choices: ['$CHOICE$'])]" description="Symfony #[Assert\Choice(...)]" toReformat="true" toShortenFQNames="true">
+    <variable name="CHOICE" expression="" defaultValue="" alwaysStopAt="true" />
+    <context />
+  </template>
+  <template name="length" value="#[Assert\Length(min: $MIN$, max: $MAX$)]" description="Symfony #[Assert\Length(...)]" toReformat="true" toShortenFQNames="true">
+    <variable name="MIN" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="MAX" expression="" defaultValue="" alwaysStopAt="true" />
+    <context />
+  </template>
+  <template name="notNull" value="#[Assert\NotNull]" description="Symfony #[Assert\NotNull]" toReformat="true" toShortenFQNames="true">
+    <context />
+  </template>
+  <template name="type" value="#[Assert\Type(type: '$TYPE$')]" description="Symfony #[Assert\Type(...)]" toReformat="true" toShortenFQNames="true">
+    <variable name="TYPE" expression="" defaultValue="" alwaysStopAt="true" />
+    <context />
+  </template>
+  <template name="valid" value="#[Assert\Valid]" description="Symfony #[Assert\Valid]" toReformat="true" toShortenFQNames="true">
+    <context />
+  </template>
+  <template name="required" value="#[Required]" description="Symfony #[Required]" toReformat="true" toShortenFQNames="true">
+    <context />
+  </template>
+  <template name="ignore" value="#[Ignore]" description="Symfony #[Ignore]" toReformat="true" toShortenFQNames="true">
+    <context />
+  </template>
+  <template name="uniqueEntity" value="#[UniqueEntity(fields: ['$FIELD$'])]" description="Symfony #[UniqueEntity(...)]" toReformat="true" toShortenFQNames="true">
+    <variable name="FIELD" expression="" defaultValue="" alwaysStopAt="true" />
+    <context />
+  </template>
+  <template name="email" value="#[Assert\Email(message: '$MESSAGE$')]" description="Symfony #[Assert\Email(...)]" toReformat="true" toShortenFQNames="true">
+    <variable name="MESSAGE" expression="" defaultValue="" alwaysStopAt="true" />
+    <context />
+  </template>
+  <template name="column" value="#[ORM\Column(name: '$NAME$', type: '$TYPE$', length: $LENGTH$)]" description="Symfony #[ORM\Column(...)]" toReformat="true" toShortenFQNames="true">
+    <variable name="NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="TYPE" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="LENGTH" expression="" defaultValue="&quot;null&quot;" alwaysStopAt="true" />
+    <context />
+  </template>
+  <template name="discriminatormap" value="#[ORM\DiscriminatorMap(['$VALUE$' =&gt; $CLASSNAME$::class])]" description="Symfony #[ORM\DiscriminatorMap(...)]" toReformat="true" toShortenFQNames="true">
+    <variable name="VALUE" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="CLASSNAME" expression="" defaultValue="&quot;ClassName&quot;" alwaysStopAt="true" />
+    <context />
+  </template>
+  <template name="discriminatorcolumn" value="#[ORM\DiscriminatorColumn(name: '$NAME$', type: '$TYPE$')]" description="Symfony #[ORM\DiscriminatorColumn(...)]" toReformat="true" toShortenFQNames="true">
+    <variable name="NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="TYPE" expression="" defaultValue="" alwaysStopAt="true" />
+    <context />
+  </template>
+  <template name="embeddable" value="#[ORM\Embeddable]" description="Symfony #[ORM\Embeddable]" toReformat="true" toShortenFQNames="true">
+    <context />
+  </template>
+  <template name="embedded" value="#[ORM\Embedded(columnPrefix: '$PREFIX$', class: $ENTITY$::class)]" description="Symfony #[ORM\Embedded(...)]" toReformat="true" toShortenFQNames="true">
+    <variable name="PREFIX" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="ENTITY" expression="" defaultValue="&quot;ClassName&quot;" alwaysStopAt="true" />
+    <context />
+  </template>
+  <template name="entityattribute" value="#[ORM\Entity(repositoryClass: $REPOSITORY$::class)]" description="Symfony #[ORM\Entity(...)]" toReformat="true" toShortenFQNames="true">
+    <variable name="REPOSITORY" expression="" defaultValue="&quot;ClassName&quot;" alwaysStopAt="true" />
+    <context />
+  </template>
+  <template name="id" value="#[ORM\Id]" description="Symfony #[ORM\Id]" toReformat="true" toShortenFQNames="true">
+    <context />
+  </template>
+  <template name="index" value="#[ORM\Index(name: '$NAME$', columns: [$COLUMNS$])]" description="Symfony #[ORM\Index(...)]" toReformat="true" toShortenFQNames="true">
+    <variable name="NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="COLUMNS" expression="" defaultValue="" alwaysStopAt="true" />
+    <context />
+  </template>
+  <template name="joincolumn" value="#[ORM\JoinColumn(name: '$NAME$', referencedColumnName: '$REFERENCE$', onDelete: '$DELETE$')]" description="Symfony #[ORM\JoinColumn(...)]" toReformat="true" toShortenFQNames="true">
+    <variable name="NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="REFERENCE" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="DELETE" expression="" defaultValue="" alwaysStopAt="true" />
+    <context />
+  </template>
+  <template name="jointable" value="#[ORM\JoinTable(name: '$NAME$')]" description="Symfony #[ORM\JoinTable(...)]" toReformat="true" toShortenFQNames="true">
+    <variable name="NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <context />
+  </template>
+  <template name="manytomany" value="#[ORM\ManyToMany(targetEntity: '$TARGET$')]" description="Symfony #[ORM\ManyToMany(...)]" toReformat="true" toShortenFQNames="true">
+    <variable name="TARGET" expression="" defaultValue="" alwaysStopAt="true" />
+    <context />
+  </template>
+  <template name="manytoone" value="#[ORM\ManyToOne(targetEntity: '$TARGET$')]" description="Symfony #[ORM\ManyToMany(...)]" toReformat="true" toShortenFQNames="true">
+    <variable name="TARGET" expression="" defaultValue="" alwaysStopAt="true" />
+    <context />
+  </template>
+  <template name="onetoone" value="#[ORM\OneToOne(targetEntity: '$TARGET$')]" description="Symfony #[ORM\OneToOne(...)]" toReformat="true" toShortenFQNames="true">
+    <variable name="TARGET" expression="" defaultValue="" alwaysStopAt="true" />
+    <context />
+  </template>
+  <template name="onetomany" value="#[ORM\OneToMany(targetEntity: '$TARGET$')]" description="Symfony #[ORM\OneToMany(...)]" toReformat="true" toShortenFQNames="true">
+    <variable name="TARGET" expression="" defaultValue="" alwaysStopAt="true" />
+    <context />
+  </template>
+  <template name="table" value="#[ORM\Table(name: '$NAME$')]" description="Symfony #[ORM\Table(...)]" toReformat="false" toShortenFQNames="true">
+    <variable name="NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <context />
+  </template>
+  <template name="uniqueconstraint" value="#[ORM\UniqueConstraint(name: '$NAME$', columns: [$COLUMNS$])]" description="Symfony #[ORM\Table(...)]" toReformat="false" toShortenFQNames="true">
+    <variable name="NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="COLUMNS" expression="" defaultValue="" alwaysStopAt="true" />
+    <context />
+  </template>
+  <template name="action" value="#[Route(path: '/$PATH$', name: '$ROUTE_NAME$')]&#10;public function $NAME$Action() {&#10;   $END$&#10;}" description="Symfony: creates a controller action" toReformat="true" toShortenFQNames="true">
+    <variable name="PATH" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="ROUTE_NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <context />
+  </template>
+  <template name="add" value="-&gt;add('$FIELD$', $CLASSNAME$::class)" description="Symfony: adds a new field to the form builder" toReformat="true" toShortenFQNames="true">
+    <variable name="FIELD" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="CLASSNAME" expression="" defaultValue="&quot;ClassName&quot;" alwaysStopAt="true" />
+    <context />
+  </template>
+  <template name="addflash" value="$this-&gt;addFlash('$TYPE$','$MESSAGE$');" description="Symfony: adds a flash message to the current session for type" toReformat="true" toShortenFQNames="true">
+    <variable name="TYPE" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="MESSAGE" expression="" defaultValue="" alwaysStopAt="true" />
+    <context />
+  </template>
+  <template name="command" value=" namespace $NAMESPACE$;&#10; use Symfony\Component\Console\Attribute\AsCommand;&#10; use Symfony\Component\Console\Command\Command;&#10; use Symfony\Component\Console\Input\InputInterface;&#10; use Symfony\Component\Console\Output\OutputInterface;&#10; #[AsCommand(name: '$COMMANDNAME$', description: '$DESCRIPTION$')]&#10; class $CLASSNAME$ extends Command {&#10;   protected function configure(): void {&#10;        $TODO$&#10;   }&#10;   protected function execute(InputInterface $input, OutputInterface $output): int {&#10;       return Command::SUCCESS;&#10;   }&#10; }" description="Creates a new Symfony command" toReformat="true" toShortenFQNames="true">
+    <variable name="NAMESPACE" expression="" defaultValue="&quot;App\\Command&quot;" alwaysStopAt="true" />
+    <variable name="COMMANDNAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="DESCRIPTION" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="CLASSNAME" expression="" defaultValue="&quot;ClassName&quot;" alwaysStopAt="true" />
+    <variable name="TODO" expression="" defaultValue="&quot;// todo: configure your command&quot;" alwaysStopAt="true" />
+    <context />
+  </template>
+  <template name="controller" value=" namespace $NAMESPACE$;&#10; use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;&#10; use Symfony\Component\Routing\Annotation\Route;&#10; class $CLASSNAME$ extends AbstractController {&#10;   #[Route(path: '/$PATH$', name: '$NAME$')]&#10;   public function someAction($name) {&#10;       $END$&#10;   }&#10; }" description="Creates a new Symfony controller" toReformat="true" toShortenFQNames="true">
+    <variable name="NAMESPACE" expression="" defaultValue="&quot;App\\Controller&quot;" alwaysStopAt="true" />
+    <variable name="CLASSNAME" expression="" defaultValue="&quot;Controller&quot;" alwaysStopAt="true" />
+    <variable name="PATH" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <context />
+  </template>
+  <template name="createquery" value="$this-&gt;getEntityManager()             &#10;-&gt;createQuery('SELECT $ALIAS$ FROM $ENTITY$ $ALIAS$ WHERE $ALIAS$.$PROPERTY$ = :$PARAMETER$')             &#10;-&gt;setParameter('$PARAMETER$', $ARGUMENT$)             &#10;-&gt;execute();" description="Symfony: queries objects in repositories with DQL" toReformat="false" toShortenFQNames="true">
+    <variable name="ALIAS" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="ENTITY" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="PROPERTY" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="PARAMETER" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="ARGUMENT" expression="" defaultValue="" alwaysStopAt="true" />
+    <context />
+  </template>
+  <template name="doctrinecolumn" value="/** @var $PHPTYPE$ */ &#10;#[ORM\Column(name: '$FIELDNAME$', type: '$TYPE$')] &#10;private $$$PROPERTYNAME$;" description="Symfony: adds a property with @ORM annotations" toReformat="true" toShortenFQNames="true">
+    <variable name="PHPTYPE" expression="snakeCase(TYPE)" defaultValue="" alwaysStopAt="true" />
+    <variable name="FIELDNAME" expression="snakeCase(PROPERTYNAME)" defaultValue="" alwaysStopAt="true" />
+    <variable name="TYPE" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="PROPERTYNAME" expression="" defaultValue="&quot;fieldName&quot;" alwaysStopAt="true" />
+    <context />
+  </template>
+  <template name="entity" value=" namespace $NAMESPACE$;&#10; use Doctrine\ORM\Mapping as ORM;&#10; #[ORM\Entity]&#10; #[ORM\Table(name: '$NAME$')]&#10; class $CLASSNAME$ { #[ORM\Id]&#10; #[ORM\GeneratedValue]&#10; #[ORM\Column(type: 'int')]&#10;   private int $id = 0;   public function getId(): int {    return $this-&gt;id;   } }" description="Symfony: creates a new entity class" toReformat="true" toShortenFQNames="true">
+    <variable name="NAMESPACE" expression="" defaultValue="&quot;App\\Entity&quot;" alwaysStopAt="true" />
+    <variable name="NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="CLASSNAME" expression="snakeCase(TYPE)" defaultValue="&quot;Entity&quot;" alwaysStopAt="true" />
+    <context />
+  </template>
+  <template name="formbuilder" value="$formBuilder = $this-&gt;createFormBuilder();             &#10;return $formBuilder&#10;    -&gt;add('$FIELD$', $CLASSNAME$::class)$END$;" description="Creates and returns a form builder instance" toReformat="true" toShortenFQNames="true">
+    <variable name="FIELD" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="CLASSNAME" expression="" defaultValue="&quot;ClassName&quot;" alwaysStopAt="true" />
+    <context />
+  </template>
+  <template name="formhandle" value="$form = $this-&gt;createForm($CLASSNAME$::class);             $form-&gt;handleRequest($REQUEST$);             if ($form-&gt;isSubmitted() &amp;&amp; $form-&gt;isValid()) {&#10;   $END$&#10;}" description="Symfony: adds controller form-handling code" toReformat="true" toShortenFQNames="true">
+    <variable name="CLASSNAME" expression="" defaultValue="&quot;ClassName&quot;" alwaysStopAt="true" />
+    <variable name="REQUEST" expression="" defaultValue="&quot;$request&quot;" alwaysStopAt="true" />
+    <context />
+  </template>
+  <template name="querybuilder" value="$QB$ = $this-&gt;createQueryBuilder('p')                &#10;-&gt;where('p.$PROPERTY$ = :$PARAMETER$')                &#10;-&gt;setParameter('$PARAM$', $ARGUMENT$)                &#10;-&gt;getQuery();" description="Symfony: queries objects in repositories using query builder" toReformat="true" toShortenFQNames="true">
+    <variable name="QB" expression="" defaultValue="&quot;$qb&quot;" alwaysStopAt="true" />
+    <variable name="PROPERTY" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="PARAMETER" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="PARAM" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="ARGUMENT" expression="" defaultValue="" alwaysStopAt="true" />
+    <context />
+  </template>
+  <template name="getem" value="$EM$ = $this-&gt;getDoctrine()-&gt;getManager();" description="" toReformat="false" toShortenFQNames="true">
+    <variable name="EM" expression="" defaultValue="&quot;$em&quot;" alwaysStopAt="true" />
+    <context />
+  </template>
+  <template name="getrepo" value="$EM$-&gt;getRepository('$ENTITY$');" description="" toReformat="false" toShortenFQNames="true">
+    <variable name="EM" expression="" defaultValue="&quot;$em&quot;" alwaysStopAt="true" />
+    <variable name="ENTITY" expression="" defaultValue="" alwaysStopAt="true" />
+    <context />
+  </template>
+  <template name="persistflush" value="$EM$-&gt;persist($ENTITY$);&#10;$EM2$-&gt;flush();" description="Symfony: generates entity manager flush" toReformat="true" toShortenFQNames="true">
+    <variable name="EM" expression="" defaultValue="&quot;$this-&gt;entityManager&quot;" alwaysStopAt="true" />
+    <variable name="ENTITY" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="EM2" expression="" defaultValue="&quot;$this-&gt;entityManager&quot;" alwaysStopAt="true" />
+    <context />
+  </template>
+  <template name="removeflush" value="$EM$-&gt;remove($ENTITY$);&#10;$EM2$-&gt;flush();" description="Symfony: removes an object instance" toReformat="true" toShortenFQNames="true">
+    <variable name="EM" expression="" defaultValue="&quot;$this-&gt;entityManager&quot;" alwaysStopAt="true" />
+    <variable name="ENTITY" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="EM2" expression="" defaultValue="&quot;$this-&gt;entityManager&quot;" alwaysStopAt="true" />
+    <context />
+  </template>
+  <template name="redirect" value="return $this-&gt;redirect('$URL$');" description="Symfony: redirects to URL" toReformat="true" toShortenFQNames="true">
+    <variable name="URL" expression="" defaultValue="" alwaysStopAt="true" />
+    <context />
+  </template>
+  <template name="repofind" value="$VAR$ = $this-&gt;getDoctrine()             &#10;-&gt;getRepository('$REPO$')             &#10;-&gt;$METHOD$($ARG$);" description="Symfony: queries from a Doctrine repository in a controller" toReformat="true" toShortenFQNames="true">
+    <variable name="VAR" expression="" defaultValue="&quot;$var&quot;" alwaysStopAt="true" />
+    <variable name="REPO" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="METHOD" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="ARG" expression="" defaultValue="" alwaysStopAt="true" />
+    <context />
+  </template>
+  <template name="rendertwig" value="return $this-&gt;render('$TEMPLATE$.html.twig', [&#10;    $VAL$&#10;]);" description="Symfony: renders a Twig template from a controller" toReformat="false" toShortenFQNames="true">
+    <variable name="TEMPLATE" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="VAL" expression="" defaultValue="" alwaysStopAt="true" />
+    <context />
+  </template>
+  <template name="404unless" value="if ($CONDITION$) { throw $this-&gt;createNotFoundException($MESSAGE$); }" description="Symfony: 404 if statement for a controller" toReformat="true" toShortenFQNames="true">
+    <variable name="CONDITION" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="MESSAGE" expression="" defaultValue="" alwaysStopAt="true" />
+    <context />
+  </template>
+</templateSet>

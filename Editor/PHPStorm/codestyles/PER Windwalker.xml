@@ -1,4 +1,4 @@
-<code_scheme name="PSR-12 Windwalker4" version="173">
+<code_scheme name="PER Windwalker" version="173">
   <option name="AUTODETECT_INDENTS" value="false" />
   <option name="LINE_SEPARATOR" value="&#10;" />
   <CssCodeStyleSettings>
@@ -50,6 +50,10 @@
     <option name="ALIGN_PHPDOC_PARAM_NAMES" value="true" />
     <option name="ALIGN_PHPDOC_COMMENTS" value="true" />
     <option name="COMMA_AFTER_LAST_ARRAY_ELEMENT" value="true" />
+    <option name="COMMA_AFTER_LAST_PARAMETER" value="true" />
+    <option name="COMMA_AFTER_LAST_CLOSURE_USE_VAR" value="true" />
+    <option name="COMMA_AFTER_LAST_ARGUMENT" value="true" />
+    <option name="COMMA_AFTER_LAST_MATCH_ARM" value="true" />
     <option name="PHPDOC_BLANK_LINES_AROUND_PARAMETERS" value="true" />
     <option name="PHPDOC_WRAP_LONG_LINES" value="true" />
     <option name="BLANK_LINES_BETWEEN_IMPORTS" value="1" />
@@ -67,7 +71,13 @@
     <option name="KEEP_BLANK_LINES_AFTER_LBRACE" value="0" />
     <option name="FORCE_SHORT_DECLARATION_ARRAY_STYLE" value="true" />
     <option name="NEW_LINE_AFTER_PHP_OPENING_TAG" value="true" />
+    <option name="FORCE_EMPTY_METHODS_IN_ONE_LINE" value="true" />
+    <option name="FORCE_EMPTY_CLASSES_IN_ONE_LINE" value="true" />
+    <option name="MULTILINE_CHAINED_CALLS_FIRST_CALL_ON_NEW_LINE" value="true" />
+    <option name="MULTILINE_CLOSURE_LAMBDA_ON_NEW_LINE" value="true" />
+    <option name="HEREDOC_ON_SAME_LINE" value="true" />
     <option name="PLACE_PARENS_FOR_CONSTRUCTOR" value="1" />
+    <option name="ATTRIBUTES_WRAP" value="2" />
   </PHPCodeStyleSettings>
   <PostgresCodeStyleSettings version="7">
     <option name="USE_GENERAL_STYLE" value="false" />
@@ -144,7 +154,6 @@
     <option name="BLANK_LINES_AFTER_PACKAGE" value="1" />
     <option name="BLANK_LINES_AROUND_FIELD" value="1" />
     <option name="ALIGN_MULTILINE_PARAMETERS" value="false" />
-    <option name="ALIGN_MULTILINE_PARAMETERS_IN_CALLS" value="true" />
     <option name="ALIGN_MULTILINE_EXTENDS_LIST" value="true" />
     <option name="SPACE_AFTER_TYPE_CAST" value="true" />
     <option name="CALL_PARAMETERS_WRAP" value="5" />
