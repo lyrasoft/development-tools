@@ -109,9 +109,15 @@ curl -sL https://deb.nodesource.com/setup_22.x | bash -
 sudo apt-get install -y nodejs
 npm i corepack -g
 
-sudo -u apache corepack install yarn@berry
-sudo -u apache yarn config set nodeLinker node-modules --home
-sudo -u apache yarn config set enableMessageNames false --home
+sudo -u apache corepack install yarn@4 -g
+
+sudo -u apache cat <<END > /home/apache/.yarnrc.yml
+enableMessageNames: false
+nodeLinker: node-modules
+END
+
+sudo -u apache echo -e 'export COREPACK_ENABLE_AUTO_PIN=0\n' >> /home/apache/.bashrc
+
 
 # Configure phpmyadmin
 echo "Install and configure phpmyadmin"
