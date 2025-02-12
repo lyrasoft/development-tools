@@ -104,10 +104,14 @@ echo "Install PHP packages"
 apt-get install zip unzip php-pear php-fpm php-dev php-zip php-curl php-xmlrpc php-bcmath php-gd php-mysql php-mbstring php-xml php-intl -y --allow-unauthenticated
 
 # Configure Node
-echo "Install node 14 and yarn"
-curl -sL https://deb.nodesource.com/setup_20.x | bash -
+echo "Install node and yarn"
+curl -sL https://deb.nodesource.com/setup_22.x | bash -
 sudo apt-get install -y nodejs
-npm i yarn -g
+npm i corepack -g
+
+sudo -u apache corepack install yarn@berry
+sudo -u apache yarn config set nodeLinker node-modules --home
+sudo -u apache yarn config set enableMessageNames false --home
 
 # Configure phpmyadmin
 echo "Install and configure phpmyadmin"
