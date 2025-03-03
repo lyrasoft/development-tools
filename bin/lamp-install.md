@@ -123,13 +123,6 @@ sudo -u apache echo -e 'export COREPACK_ENABLE_AUTO_PIN=0\n' >> /home/apache/.ba
 echo "Install and configure phpmyadmin"
 DEBIAN_FRONTEND=noninteractive apt install phpmyadmin -yq
 
-cat <<END >/etc/phpmyadmin/conf.d/autologin.php
-<?php
-\$cfg['Servers'][\$i]['auth_type'] = 'config';
-\$cfg['Servers'][\$i]['user'] = 'root';
-\$cfg['Servers'][\$i]['password'] = '$DB_PASSWORD';
-END
-
 # Configure Composer
 echo "Install Composer"
 wget https://raw.githubusercontent.com/composer/getcomposer.org/76a7060ccb93902cd7576b67264ad91c8a2700e2/web/installer -O - -q | php -- --quiet
