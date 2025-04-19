@@ -49,7 +49,7 @@ cat <<END >/etc/apache2/sites-available/000-default.conf
 
     ServerAdmin webmaster@localhost
     DocumentRoot /var/www/html
-    Alias /db /usr/share/phpmyadmin
+    # Alias /db /usr/share/phpmyadmin
 
     ErrorLog \${APACHE_LOG_DIR}/error.log
     CustomLog \${APACHE_LOG_DIR}/access.log combined
