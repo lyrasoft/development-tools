@@ -128,10 +128,17 @@ END
 
 sudo -u apache echo -e 'export COREPACK_ENABLE_AUTO_PIN=0\n' >> /home/apache/.bashrc
 
-
 # Configure phpmyadmin
 echo "Install and configure phpmyadmin"
 DEBIAN_FRONTEND=noninteractive apt install phpmyadmin -yq
+
+# Swap
+echo "Create Swap"
+sudo fallocate -l 4G /swapfile
+sudo chmod 600 /swapfile
+sudo mkswap /swapfile
+sudo swapon /swapfile
+echo "/swapfile   none swap    sw 0 0" >> /etc/fstab
 
 # Configure Composer
 echo "Install Composer"
