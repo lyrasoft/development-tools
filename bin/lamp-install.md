@@ -111,7 +111,7 @@ systemctl restart apache2
 
 # Configure PHP
 echo "Install PHP packages"
-apt-get install zip unzip php-pear php-fpm php-dev php-zip php-curl php-xmlrpc php-bcmath php-gd php-mysql php-mbstring php-xml php-intl -y --allow-unauthenticated
+apt-get install zip unzip php-pear php-fpm php-dev php-zip php-curl php-xmlrpc php-bcmath php-gd php-mysql php-mbstring php-xml php-dom php-intl -y --allow-unauthenticated
 
 # Configure Node
 echo "Install node and yarn"
