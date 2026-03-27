@@ -59,6 +59,11 @@ cat <<END >/etc/apache2/sites-available/000-default.conf
         Allow from 127.0.0.1
     </Directory>
 </VirtualHost>
+<VirtualHost *:443>
+    <Location />
+        Require all denied
+    </Location>
+</VirtualHost>
 END
 
 #Create a copy of the default Apache configuration file for your site:
