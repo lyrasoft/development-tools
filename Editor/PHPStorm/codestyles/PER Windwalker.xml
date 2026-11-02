@@ -71,13 +71,17 @@
     <option name="KEEP_BLANK_LINES_AFTER_LBRACE" value="0" />
     <option name="FORCE_SHORT_DECLARATION_ARRAY_STYLE" value="true" />
     <option name="NEW_LINE_AFTER_PHP_OPENING_TAG" value="true" />
+    <option name="UNION_TYPE_WRAP" value="5" />
     <option name="FORCE_EMPTY_METHODS_IN_ONE_LINE" value="true" />
     <option name="FORCE_EMPTY_CLASSES_IN_ONE_LINE" value="true" />
+    <option name="REFORMAT_NULL_TYPE_POSITION" value="IN_THE_END" />
     <option name="MULTILINE_CHAINED_CALLS_FIRST_CALL_ON_NEW_LINE" value="true" />
     <option name="MULTILINE_CLOSURE_LAMBDA_ON_NEW_LINE" value="true" />
     <option name="HEREDOC_ON_SAME_LINE" value="true" />
+    <option name="COLLAPSE_ABSTRACT_PROPERTY_HOOKS" value="true" />
+    <option name="NORMALIZE_CAST_PAREN_SPACING" value="true" />
+    <option name="COLLAPSE_LINE_BREAK_AFTER_TYPE_CAST" value="true" />
     <option name="PLACE_PARENS_FOR_CONSTRUCTOR" value="1" />
-    <option name="ATTRIBUTES_WRAP" value="2" />
   </PHPCodeStyleSettings>
   <PostgresCodeStyleSettings version="7">
     <option name="USE_GENERAL_STYLE" value="false" />
@@ -146,6 +150,7 @@
     </indentOptions>
   </codeStyleSettings>
   <codeStyleSettings language="PHP">
+    <option name="RIGHT_MARGIN" value="120" />
     <option name="LINE_COMMENT_AT_FIRST_COLUMN" value="false" />
     <option name="LINE_COMMENT_ADD_SPACE" value="true" />
     <option name="KEEP_BLANK_LINES_IN_DECLARATIONS" value="0" />
@@ -163,6 +168,11 @@
     <option name="METHOD_PARAMETERS_LPAREN_ON_NEXT_LINE" value="true" />
     <option name="METHOD_PARAMETERS_RPAREN_ON_NEXT_LINE" value="true" />
     <option name="EXTENDS_LIST_WRAP" value="5" />
+    <option name="METHOD_CALL_CHAIN_WRAP" value="1" />
+    <option name="BINARY_OPERATION_WRAP" value="1" />
+    <option name="BINARY_OPERATION_SIGN_ON_NEXT_LINE" value="true" />
+    <option name="TERNARY_OPERATION_WRAP" value="1" />
+    <option name="TERNARY_OPERATION_SIGNS_ON_NEXT_LINE" value="true" />
     <option name="FOR_STATEMENT_LPAREN_ON_NEXT_LINE" value="true" />
     <option name="FOR_STATEMENT_RPAREN_ON_NEXT_LINE" value="true" />
     <option name="ARRAY_INITIALIZER_WRAP" value="5" />
