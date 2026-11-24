@@ -91,6 +91,9 @@ sudo cat <<END >/etc/apache2/sites-available/$WEBSITE.conf
 <Directory /var/www/$HOSTNAME>
     Require all granted
     AllowOverride All
+    <FilesMatch "\.(?i:php[0-9]?|phar|phtml)\$">
+        SetHandler application/x-httpd-php
+    </FilesMatch>
 </Directory>
 <VirtualHost *:80>
         ServerName $WEBSITE
